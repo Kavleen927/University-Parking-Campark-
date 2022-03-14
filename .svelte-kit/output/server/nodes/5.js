@@ -1,6 +1,6 @@
-import * as module from '../entries/pages/signup.svelte.js';
+import * as module from '../entries/pages/profile.svelte.js';
 
 export { module };
-export const entry = 'pages/signup.svelte-b3676f43.js';
-export const js = ["pages/signup.svelte-b3676f43.js","chunks/vendor-7b4d9e86.js","chunks/firebase-baec3b77.js","chunks/fetch-552fd9ba.js"];
-export const css = ["assets/pages/signup.svelte-e567714a.css"];
+export const entry = 'pages/profile.svelte-e6c2ec35.js';
+export const js = ["pages/profile.svelte-e6c2ec35.js","chunks/vendor-463e4ee4.js"];
+export const css = [];

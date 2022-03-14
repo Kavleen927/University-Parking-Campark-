@@ -3,9 +3,12 @@ const c = [
 	() => import("..\\runtime\\components\\error.svelte"),
 	() => import("..\\..\\src\\routes\\index.svelte"),
 	() => import("..\\..\\src\\routes\\forgotPassword.svelte"),
+	() => import("..\\..\\src\\routes\\parkinglots.svelte"),
 	() => import("..\\..\\src\\routes\\profile.svelte"),
 	() => import("..\\..\\src\\routes\\signup.svelte"),
-	() => import("..\\..\\src\\routes\\login.svelte")
+	() => import("..\\..\\src\\routes\\login.svelte"),
+	() => import("..\\..\\src\\routes\\lot7N.svelte"),
+	() => import("..\\..\\src\\routes\\lot6.svelte")
 ];
 
 const d = decodeURIComponent;
@@ -17,14 +20,23 @@ export const routes = [
 	// src/routes/forgotPassword.svelte
 	[/^\/forgotPassword\/?$/, [c[0], c[3]], [c[1]]],
 
+	// src/routes/parkinglots.svelte
+	[/^\/parkinglots\/?$/, [c[0], c[4]], [c[1]]],
+
 	// src/routes/profile.svelte
-	[/^\/profile\/?$/, [c[0], c[4]], [c[1]]],
+	[/^\/profile\/?$/, [c[0], c[5]], [c[1]]],
 
 	// src/routes/signup.svelte
-	[/^\/signup\/?$/, [c[0], c[5]], [c[1]]],
+	[/^\/signup\/?$/, [c[0], c[6]], [c[1]]],
 
 	// src/routes/login.svelte
-	[/^\/login\/?$/, [c[0], c[6]], [c[1]]]
+	[/^\/login\/?$/, [c[0], c[7]], [c[1]]],
+
+	// src/routes/lot7N.svelte
+	[/^\/lot7N\/?$/, [c[0], c[8]], [c[1]]],
+
+	// src/routes/lot6.svelte
+	[/^\/lot6\/?$/, [c[0], c[9]], [c[1]]]
 ];
 
 // we import the root layout/error components eagerly, so that

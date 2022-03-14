@@ -1,4 +1,4 @@
-import { c as create_ssr_component, f as createEventDispatcher, o as onDestroy, d as subscribe, v as validate_component, b as escape } from "../../chunks/index-15d7494f.js";
+import { c as create_ssr_component, f as createEventDispatcher, o as onDestroy, d as subscribe, b as escape, v as validate_component } from "../../chunks/index-15d7494f.js";
 import { s as session } from "../../chunks/stores-602c1869.js";
 const Geolocation = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { coords = [-1, -1] } = $$props;
@@ -134,17 +134,18 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let getPosition = false;
   $$result.css.add(css);
   $$unsubscribe_session();
-  return `${validate_component(Geolocation, "Geolocation").$$render($$result, { getPosition }, {}, {
+  return `<body class="${"svelte-f1jmza"}"><div class="${"svelte-f1jmza"}"><div id="${"content"}" class="${"svelte-f1jmza"}"><br><br><br>
+            <h1 class="${"svelte-f1jmza"}">Welcome, ${escape($session.user.name)}!</h1>
+            <p>Your email is ${escape($session.user.email)}</p><br>
+            <button class="${"svelte-f1jmza"}">Get geolocation </button> <br><br><br>
+        
+        ${validate_component(Geolocation, "Geolocation").$$render($$result, { getPosition }, {}, {
     default: ({ coords, loading, success, error, notSupported }) => {
       return `${notSupported ? `Your browser does not support the Geolocation API.` : `${loading ? `Loading...` : ``}
-    ${success ? `${escape(JSON.stringify(coords))}` : ``}
-    ${error ? `An error occurred. ${escape(error.code)} ${escape(error.message)}` : ``}`}`;
+            ${success ? `${escape(JSON.stringify(coords))}` : ``}
+            ${error ? `An error occurred. ${escape(error.code)} ${escape(error.message)}` : ``}`}`;
     }
-  })}
-
-<body class="${"svelte-f1jmza"}"><div class="${"svelte-f1jmza"}"><div id="${"content"}" class="${"svelte-f1jmza"}"><h1 class="${"svelte-f1jmza"}">Welcome, ${escape($session.user.name)}!</h1>
-            <p>Your email is ${escape($session.user.email)}</p><br>
-            <button class="${"svelte-f1jmza"}">Get geolocation </button></div></div>
+  })}</div></div>
 </body>`;
 });
 export { Routes as default, load };

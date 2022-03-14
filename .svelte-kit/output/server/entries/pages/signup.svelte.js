@@ -10,7 +10,7 @@ const css = {
 const load = async ({ session }) => {
   if (!session.user.exists)
     return {};
-  return { status: 302, redirect: "/login" };
+  return { status: 302, redirect: "/" };
 };
 const Signup = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let username, email, password;

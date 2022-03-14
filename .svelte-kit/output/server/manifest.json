@@ -56,6 +56,17 @@
       "_index-15d7494f.js"
     ]
   },
+  "src/routes/parkinglots.svelte": {
+    "file": "entries/pages/parkinglots.svelte.js",
+    "src": "src/routes/parkinglots.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-15d7494f.js"
+    ],
+    "css": [
+      "assets/entries/pages/parkinglots.svelte-6037c5f5.css"
+    ]
+  },
   "src/routes/profile.svelte": {
     "file": "entries/pages/profile.svelte.js",
     "src": "src/routes/profile.svelte",
@@ -86,6 +97,28 @@
     ],
     "css": [
       "assets/entries/pages/login.svelte-6d2c876a.css"
+    ]
+  },
+  "src/routes/lot7N.svelte": {
+    "file": "entries/pages/lot7N.svelte.js",
+    "src": "src/routes/lot7N.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-15d7494f.js"
+    ],
+    "css": [
+      "assets/entries/pages/lot7N.svelte-28270f7b.css"
+    ]
+  },
+  "src/routes/lot6.svelte": {
+    "file": "entries/pages/lot6.svelte.js",
+    "src": "src/routes/lot6.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-15d7494f.js"
+    ],
+    "css": [
+      "assets/entries/pages/lot7N.svelte-28270f7b.css"
     ]
   },
   "_index-15d7494f.js": {

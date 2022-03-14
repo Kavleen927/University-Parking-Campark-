@@ -26,6 +26,10 @@
 			href: '/profile',
 			name: 'Profile',
 		},
+        {
+			href: '/parkinglots',
+			name: 'Parking Lots',
+		}
 	];
 </script>
 <header>

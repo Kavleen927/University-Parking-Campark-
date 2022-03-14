@@ -7,7 +7,14 @@ const css = {
   map: null
 };
 const Navigation = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const navigation = [{ href: "/", name: "Home" }, { href: "/profile", name: "Profile" }];
+  const navigation = [
+    { href: "/", name: "Home" },
+    { href: "/profile", name: "Profile" },
+    {
+      href: "/parkinglots",
+      name: "Parking Lots"
+    }
+  ];
   $$result.css.add(css);
   return `
 

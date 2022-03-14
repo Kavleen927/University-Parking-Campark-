@@ -16,37 +16,38 @@
   let getPosition = false;
 </script>
 
-<Geolocation
-  getPosition="{getPosition}"
-  let:coords
-  let:loading
-  let:success
-  let:error
-  let:notSupported
->
-  {#if notSupported}
-    Your browser does not support the Geolocation API.
-  {:else}
-    {#if loading}
-      Loading...
-    {/if}
-    {#if success}
-      {JSON.stringify(coords)}
-    {/if}
-    {#if error}
-      An error occurred. {error.code} {error.message}
-    {/if}
-  {/if}
-</Geolocation>
 
 <body>
     <div>
         <div id="content">
+            <br><br><br>
             <h1>Welcome, {$session.user.name}!</h1>
             <p>Your email is {$session.user.email}</p><br>
-            <button on:click="{() => (getPosition = true)}"> Get geolocation </button>
-        </div>
-
+            <button on:click="{() => (getPosition = true)}"> Get geolocation </button> <br><br><br>
+        
+        <Geolocation
+          getPosition="{getPosition}"
+          let:coords
+          let:loading
+          let:success
+          let:error
+          let:notSupported
+        >
+          {#if notSupported}
+            Your browser does not support the Geolocation API.
+          {:else}
+            {#if loading}
+              Loading...
+            {/if}
+            {#if success}
+              {JSON.stringify(coords)}
+            {/if}
+            {#if error}
+              An error occurred. {error.code} {error.message}
+            {/if}
+          {/if}
+        </Geolocation>
+      </div>
     </div>
 </body>
 
