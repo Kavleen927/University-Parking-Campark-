@@ -57,7 +57,7 @@
         @apply font-semibold text-xl;
     }
     button{
-        @apply rounded-lg bg-pink-600 text-white w-full py-2 mt-2;
+        @apply rounded-lg bg-pink-600 text-white w-full py-2;
     }
     body{
         @apply flex flex-col place-items-center place-content-center h-screen w-screen;

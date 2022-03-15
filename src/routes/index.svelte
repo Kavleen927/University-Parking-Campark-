@@ -10,10 +10,10 @@
 
 <script>
     import { session } from "$app/stores";
-    
-  import Geolocation from "svelte-geolocation";
+      
+    import Geolocation from "svelte-geolocation";
 
-  let getPosition = false;
+    let getPosition = false;
 </script>
 
 

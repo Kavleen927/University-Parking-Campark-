@@ -20,7 +20,7 @@
   "dependencies": {
     "cookie": "^0.4.2",
     "cookie-parser": "^1.4.6",
-    "firebase": "^9.6.7",
+    "firebase": "^9.6.8",
     "firebase-admin": "^10.0.2",
     "svelte-select": "^4.4.7"
   }

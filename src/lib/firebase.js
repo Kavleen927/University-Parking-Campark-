@@ -1,8 +1,12 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
+// import { getFirestore } from "firebase/firestore";
+// import { browser } from "$app/env";
 import { getAuth, setPersistence, inMemoryPersistence } from "firebase/auth"
 
-//TODO: add firebaes config
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebase = require("firebase");
+// // Required for side-effects
+//require("firebase/firestore");
+
 const firebaseConfig = {
   apiKey: "AIzaSyDcvUboYOdBdXyjZizf0gIZFkpXkvJZq7o",
   authDomain: "campark7-54cfc.firebaseapp.com",
@@ -13,7 +17,13 @@ const firebaseConfig = {
   measurementId: "G-7CPN5ZVFPV"
 };
 
+
+
 const app = initializeApp(firebaseConfig, "CLIENT");
+ //browser && (getApps().length === 0 ? initializeApp(firebaseConfig, "CLIENT") : getApp());
+
+
+//export const db = getFirestore(); //browser && getFirestore();
 export const auth = getAuth(app)
 
 setPersistence(auth, inMemoryPersistence)

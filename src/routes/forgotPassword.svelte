@@ -55,12 +55,15 @@
      
 
     };
-
+    const goback = async () => {
+        window.location.replace("/login")
+    }
     
 </script>
 <body>
     <div>
         <br><br><br>
+        <button id="back" on:click={goback}>&#10229;</button>
         <h1 id="title">Reset Password</h1>
 
         <p>Username</p>     
@@ -96,4 +99,7 @@
     input {
         @apply w-full rounded p-1 border border-pink-500;
     } 
+    #back{
+        max-width: 2.5rem; padding-top: 0; padding-bottom: 0;
+    }
 </style>
