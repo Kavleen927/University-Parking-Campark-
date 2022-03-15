@@ -11,13 +11,13 @@
     import Select from 'svelte-select';
     import { auth } from "$lib/firebase";                                   ///TODO: link to realtime firebase
     import {
-        createUserWithEmailAndPassword,
+        sendPasswordResetEmail,
         updateProfile,
         getIdToken,
     } from "firebase/auth";   //change to hook to real time
     import { request } from "$lib/fetch.js"                                 ///
 
-    let username, securityQChosen, securityAChosen, newPassword;           //added 3 new vars, set user inputs to these vars
+    let email, username, securityQChosen, securityAChosen, newPassword;           //added 3 new vars, set user inputs to these vars
 
 
     const securityQuestions = [
@@ -37,15 +37,17 @@
     const groupBy = (question) => question.group;
 
     const changePass = async () => {
-        const userRecord = await resetPassword(    
+        await sendPasswordResetEmail(    
             auth,                                                   
-            email,                                                 
-            password
-        );
-        await updateProfile(userRecord.user, { displayName: username });
-        const idToken = await getIdToken(userRecord.user, true);
-        await request("/auth", "POST", { idToken });
-        window.location.replace("/")    //this line it routing to the homepage (index)
+            email
+        )
+        .then(() => {
+            alert("Password Reset sent!")
+        });
+        // await updateProfile(userRecord.user, { displayName: username });
+        // const idToken = await getIdToken(userRecord.user, true);
+        // await request("/auth", "POST", { idToken });
+        // window.location.replace("/")    //this line it routing to the homepage (index)
 
      //make function:If correct securityQuestion and Answer chosen then
      //use Username to change password else make pop up "incorrect Ques & Pass"
@@ -66,8 +68,8 @@
         <button id="back" on:click={goback}>&#10229;</button>
         <h1 id="title">Reset Password</h1>
 
-        <p>Username</p>     
-        <input type="text" bind:value={username} />   <!--bind sets the inputted value to variable username-->
+        <p>Email</p>     
+        <input type="text" bind:value={email} />   <!--bind sets the inputted value to variable username-->
 
 
         <p>Security Question</p>   
