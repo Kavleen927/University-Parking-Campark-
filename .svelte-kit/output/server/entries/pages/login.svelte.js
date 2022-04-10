@@ -1,7 +1,8 @@
 import { c as create_ssr_component, a as add_attribute } from "../../chunks/index-737686e0.js";
-import "../../chunks/firebase-54b9fcaa.js";
+import "../../chunks/firebase-dfee011b.js";
 import "firebase/auth";
 import "firebase/app";
+import "firebase/firestore";
 var login_svelte_svelte_type_style_lang = "";
 const css = {
   code: "#title.svelte-1jc1ns9{text-align:center;font-weight:600}#ProjectTitle.svelte-1jc1ns9{text-align:center;font-weight:600;color:#ce2c76;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}h1.svelte-1jc1ns9{@apply font-semibold text-xl;}button.svelte-1jc1ns9{@apply rounded-lg bg-pink-600 text-white w-full py-2;}body.svelte-1jc1ns9{@apply flex flex-col place-items-center place-content-center h-screen w-screen;}div.svelte-1jc1ns9{@apply w-full max-w-xs flex flex-col gap-2;}input.svelte-1jc1ns9{@apply w-full rounded p-1 border border-pink-500;}",

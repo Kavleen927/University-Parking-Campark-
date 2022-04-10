@@ -1,7 +1,9 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-// import { getFirestore } from "firebase/firestore";
+import { collection, getFirestore } from "firebase/firestore";
 // import { browser } from "$app/env";
 import { getAuth, setPersistence, inMemoryPersistence } from "firebase/auth"
+//import { firestore } from "firebase-admin";
+//require("firebase/firestore");
 
 // const firebase = require("firebase");
 // // Required for side-effects
@@ -10,6 +12,7 @@ import { getAuth, setPersistence, inMemoryPersistence } from "firebase/auth"
 const firebaseConfig = {
   apiKey: "AIzaSyDcvUboYOdBdXyjZizf0gIZFkpXkvJZq7o",
   authDomain: "campark7-54cfc.firebaseapp.com",
+  databaseURL: "https://campark7-54cfc-default-rtdb.firebaseio.com",
   projectId: "campark7-54cfc",
   storageBucket: "campark7-54cfc.appspot.com",
   messagingSenderId: "892684328727",
@@ -17,13 +20,22 @@ const firebaseConfig = {
   measurementId: "G-7CPN5ZVFPV"
 };
 
+ //const db = getFirestore();
 
+// const colRef = collection(db, 'users');
+// getDocs(colRef).then((snapshot) => {
+//     //console.log(snapshot.docs);
+//     let users = [];
+//     snapshot.docs.forEach((doc) => {
+//       users.push({ ...doc.data(), id: doc.id })
+//     })
+//     console.log(users);
+// });
 
 const app = initializeApp(firebaseConfig, "CLIENT");
- //browser && (getApps().length === 0 ? initializeApp(firebaseConfig, "CLIENT") : getApp());
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+//db.settings({ timestampsInSnapshots: true});
 
-
-//export const db = getFirestore(); //browser && getFirestore();
-export const auth = getAuth(app)
 
 setPersistence(auth, inMemoryPersistence)

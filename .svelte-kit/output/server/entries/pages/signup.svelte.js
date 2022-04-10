@@ -1,7 +1,8 @@
 import { c as create_ssr_component, a as add_attribute, b as escape } from "../../chunks/index-737686e0.js";
-import "../../chunks/firebase-54b9fcaa.js";
+import "../../chunks/firebase-dfee011b.js";
 import "firebase/auth";
 import "firebase/app";
+import "firebase/firestore";
 var signup_svelte_svelte_type_style_lang = "";
 const css = {
   code: "#title.svelte-155gykq{text-align:center;font-weight:700}h1.svelte-155gykq{@apply font-semibold text-xl;}button.svelte-155gykq{@apply rounded-lg bg-pink-600 text-white w-full py-2 mt-2;}body.svelte-155gykq{@apply flex flex-col place-items-center place-content-center h-screen w-screen;}div.svelte-155gykq{@apply w-full max-w-xs flex flex-col gap-2;}input.svelte-155gykq{@apply w-full rounded p-1 border border-pink-500;}#dropdown.svelte-155gykq{@apply w-full rounded p-1 border border-pink-500;}",

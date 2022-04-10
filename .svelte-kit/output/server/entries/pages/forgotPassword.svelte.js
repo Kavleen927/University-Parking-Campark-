@@ -1,7 +1,8 @@
 import { c as create_ssr_component, b as escape, f as createEventDispatcher, a as add_attribute, v as validate_component, m as missing_component, e as each, h as spread, i as escape_object, j as escape_attribute_value, k as globals } from "../../chunks/index-737686e0.js";
-import "../../chunks/firebase-54b9fcaa.js";
+import "../../chunks/firebase-dfee011b.js";
 import "firebase/auth";
 import "firebase/app";
+import "firebase/firestore";
 function isOutOfViewport(parent, container) {
   const parentBounding = parent.getBoundingClientRect();
   const boundingContainer = container.getBoundingClientRect();

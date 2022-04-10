@@ -54,7 +54,7 @@
     "isEntry": true,
     "imports": [
       "_index-737686e0.js",
-      "_firebase-54b9fcaa.js"
+      "_firebase-dfee011b.js"
     ],
     "css": [
       "assets/entries/pages/forgotPassword.svelte-842c7d34.css"
@@ -88,7 +88,7 @@
     "isEntry": true,
     "imports": [
       "_index-737686e0.js",
-      "_firebase-54b9fcaa.js"
+      "_firebase-dfee011b.js"
     ],
     "css": [
       "assets/entries/pages/signup.svelte-e05a8225.css"
@@ -100,7 +100,7 @@
     "isEntry": true,
     "imports": [
       "_index-737686e0.js",
-      "_firebase-54b9fcaa.js"
+      "_firebase-dfee011b.js"
     ],
     "css": [
       "assets/entries/pages/login.svelte-0ef2eec8.css"
@@ -140,7 +140,7 @@
       "_index-737686e0.js"
     ]
   },
-  "_firebase-54b9fcaa.js": {
-    "file": "chunks/firebase-54b9fcaa.js"
+  "_firebase-dfee011b.js": {
+    "file": "chunks/firebase-dfee011b.js"
   }
 }

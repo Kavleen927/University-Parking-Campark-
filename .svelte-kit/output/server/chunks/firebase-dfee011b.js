@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app";
+import "firebase/firestore";
 import { getAuth, setPersistence, inMemoryPersistence } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDcvUboYOdBdXyjZizf0gIZFkpXkvJZq7o",
   authDomain: "campark7-54cfc.firebaseapp.com",
+  databaseURL: "https://campark7-54cfc-default-rtdb.firebaseio.com",
   projectId: "campark7-54cfc",
   storageBucket: "campark7-54cfc.appspot.com",
   messagingSenderId: "892684328727",

@@ -9,17 +9,25 @@
 </script>
 
 <script>
-    import { auth } from "$lib/firebase";
+    import { auth, db } from "$lib/firebase";
     import {
         createUserWithEmailAndPassword,
         updateProfile,
         getIdToken,
         sendEmailVerification
     } from "firebase/auth";
+    import { addDoc, collection, doc, setDoc } from "firebase/firestore";
      
     import { request } from "$lib/fetch.js"
+    import {authErrors} from "./../lib/auth-errors"
 
-    let username, email, password, phoneNumber, hofstraID, vehicle, license, userType;
+    let username, email, password, phoneNumber, hofstraID, vehicle, license, userType, question, securityAnswer, errorCode;
+
+    import { writable } from 'svelte/store';
+	import Modal, { bind } from 'svelte-simple-modal';
+    import Popup from './../components/popup.svelte';
+    const modal = writable(null);
+    const showModal = () => modal.set(bind(Popup, { message: errorCode }));
 
     const signup = async () => {
         const userRecord = await createUserWithEmailAndPassword(
@@ -28,13 +36,30 @@
             password
         )
         .catch((error) => {
-            const errorCode = error.code;
-            alert(errorCode)
+            for (var key in authErrors){
+                if( key == error.code){
+                    errorCode = authErrors[key];
+                }
+            }
+           // errorCode = error.desc;
+           
+           showModal();
+        });
+        await setDoc(doc(collection(db, "users"), userRecord.user.uid), {
+            userType: userType,
+            username: username,
+            phoneNumber: phoneNumber,
+            hofstraID: hofstraID,
+            vehicleMakeModelYear: vehicle,
+            licenseNumber: license,
+            securityQuestion: question,
+            securityAnswer: securityAnswer,
         });
         await updateProfile(userRecord.user, { displayName: username });
         await sendEmailVerification(userRecord.user)
         .then(() => {
-            alert("Email Verification sent!")
+            errorCode = "Email Verification sent!";
+            showModal();
         });
         const idToken = await getIdToken(userRecord.user, true);
         await request("/auth", "POST", { idToken });
@@ -44,25 +69,37 @@
     const login = async () => {
         window.location.replace("/login")
     }
+
+    function checkPassword(str)
+    {
+        // at least one number, one lowercase and one uppercase letter
+        // at least six characters
+        var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        return re.test(str);
+    }
+
+
 </script>
 <body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div>
         <h1 id="title">Create an Account</h1>
         <p>Username</p>
         <input type="text" bind:value={username} />
         <p>Email</p>
-        <input type="text" bind:value={email} />
+        <input type="text" placeholder="Hofstra Email" bind:value={email} />
         <p>Password </p>
         <input type="password" bind:value={password} />
+        <p id="errorCode" class="error pink-text center-align"></p>
         <p>Phone Number</p>
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required 
-        maxlength="10" bind:value={phoneNumber} />
-        <p>Hofstra ID (optional)</p>
-        <input type="number" pattern="[0-9]{9}" maxlength="9" bind:value={hofstraID} />
+        maxlength="10" placeholder="123-455-6789" bind:value={phoneNumber} />
+        <p>Hofstra ID</p>
+        <input type="number" pattern="[0-9]{9}" maxlength="9" placeholder="700222333" bind:value={hofstraID} />
         <p>Vehicle Make, Model, Year</p>
-        <input type="text" bind:value={vehicle} />
+        <input type="text" placeholder="Honda, Civic, 2000" bind:value={vehicle} />
         <p>License Plate Number</p>
-        <input type="text" maxlength="10" bind:value={license} />
+        <input type="text" maxlength="10" placeholder="ABC123" bind:value={license} />
         <p>User Type</p>
         <div id="dropdown"><select id="userType" name="userType" bind:value={userType}>
             <option value="student">Student</option>
@@ -71,10 +108,30 @@
             <option value="admin">Admin</option>
           </select></div>
         <div id="adminAuth"></div>
+        <p>Security Question</p>
+        <div id="dropdown"><select id="question" name="question" bind:value={question}>
+            <option value="1">Maiden name of your mother</option>
+            <option value="2">The name of your first pet</option>
+            <option value="3">In what city were you born?</option>
+            <option value="4">The make of your first car</option>
+            <option value="5">Favorite food as a child</option>
+            <option value="6">Month your best friend born was born</option>
+            <option value="7">Favorite movie</option>
+            <option value="8">Something you will never eat</option>
+            <option value="9">What was your first job?</option>
+            <option value="10">What was the make of your first car?</option>
+            <option value="11">Who is your favorite actor/actress?</option>
+            <option value="12">The name of your favorite book?</option>
+          </select></div>
+        <input type="text" placeholder="Answer" bind:value={securityAnswer} />
         <button on:click={signup}>Create Account!</button>
         <button on:click={login}>Already have Account</button>
+        <br><br><br><br><br>
     </div>
+    
 </body>
+<Modal show={$modal}>
+</Modal>
 <style lang="postcss">
     #title{ text-align: center; font-weight: 700; }
     h1{

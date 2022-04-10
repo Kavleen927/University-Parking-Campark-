@@ -24,7 +24,7 @@
     {value: 'Maiden name of your mother', label:'Maiden name of your mother', group: 'Family'},
     {value: 'The name of your first pet', label:'The name of your first pet', group: 'Personal'},
     {value: 'In what city were you born?', label: 'In what city were you born?', group: 'Personal'},
-    {value: 'The make of your first ca', label: 'The make of your first car', group: 'Personal'},
+    {value: 'The make of your first car', label: 'The make of your first car', group: 'Personal'},
     {value: 'Favorite food as a child', label: 'Favorite food as a child', group: 'Personal'},
     {value: 'Month your best friend born was born', label: 'Month your best friend was born', group: 'Personal'},
     {value: 'Favorite movie', label: 'Favorite movie', group: 'Personal'},
