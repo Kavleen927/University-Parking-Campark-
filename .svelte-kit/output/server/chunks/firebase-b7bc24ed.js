@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getAuth, setPersistence, inMemoryPersistence } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDcvUboYOdBdXyjZizf0gIZFkpXkvJZq7o",
@@ -13,4 +13,5 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig, "CLIENT");
 const auth = getAuth(app);
+getFirestore(app);
 setPersistence(auth, inMemoryPersistence);

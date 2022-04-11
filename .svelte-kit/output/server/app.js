@@ -17,9 +17,9 @@ var __privateSet = (obj, member, value, setter) => {
   return value;
 };
 var _use_hashes, _dev, _script_needs_csp, _style_needs_csp, _directives, _script_src, _style_src;
-import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./chunks/index-737686e0.js";
+import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./chunks/index-1f8e348f.js";
 import * as cookie from "cookie";
-import "./chunks/firebase-admin-96325c48.js";
+import "./chunks/firebase-admin-2c361b1d.js";
 import admin from "firebase-admin";
 function afterUpdate() {
 }
@@ -1951,7 +1951,7 @@ var user_hooks = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   getSession
 });
-const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<meta name="description" content="" />\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + "\n	</head>\n	<body>\n		<div>" + body + "</div>\n	</body>\n</html>\n";
+const template = ({ head, body, assets: assets2, nonce }) => '<!DOCTYPE html>\r\n<html lang="en">\r\n	<head>\r\n		<meta charset="utf-8" />\r\n		<meta name="description" content="" />\r\n		<link rel="icon" href="' + assets2 + '/favicon.png" />\r\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\r\n		' + head + "\r\n	</head>\r\n	<body>\r\n		<div>" + body + "</div>\r\n	</body>\r\n</html>\r\n";
 let read = null;
 set_paths({ "base": "", "assets": "" });
 const get_hooks = (hooks) => ({

@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["favicon.png"]),
 	_: {
 		mime: {".png":"image/png"},
-		entry: {"file":"start-c7c8f81d.js","js":["start-c7c8f81d.js","chunks/vendor-752ac5d2.js"],"css":["assets/vendor-a7d6a93c.css"]},
+		entry: {"file":"start-8e0f6f48.js","js":["start-8e0f6f48.js","chunks/vendor-e346f08a.js"],"css":["assets/vendor-123ecc59.css"]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
@@ -14,7 +14,8 @@ export const manifest = {
 			() => import('./nodes/6.js'),
 			() => import('./nodes/7.js'),
 			() => import('./nodes/8.js'),
-			() => import('./nodes/9.js')
+			() => import('./nodes/9.js'),
+			() => import('./nodes/10.js')
 		],
 		routes: [
 			{
@@ -37,11 +38,20 @@ export const manifest = {
 			},
 			{
 				type: 'page',
+				pattern: /^\/userReporting\/?$/,
+				params: null,
+				path: "/userReporting",
+				shadow: null,
+				a: [0,4],
+				b: [1]
+			},
+			{
+				type: 'page',
 				pattern: /^\/parkinglots\/?$/,
 				params: null,
 				path: "/parkinglots",
 				shadow: null,
-				a: [0,4],
+				a: [0,5],
 				b: [1]
 			},
 			{
@@ -50,7 +60,7 @@ export const manifest = {
 				params: null,
 				path: "/profile",
 				shadow: null,
-				a: [0,5],
+				a: [0,6],
 				b: [1]
 			},
 			{
@@ -59,7 +69,7 @@ export const manifest = {
 				params: null,
 				path: "/signup",
 				shadow: null,
-				a: [0,6],
+				a: [0,7],
 				b: [1]
 			},
 			{
@@ -68,7 +78,7 @@ export const manifest = {
 				params: null,
 				path: "/login",
 				shadow: null,
-				a: [0,7],
+				a: [0,8],
 				b: [1]
 			},
 			{
@@ -77,7 +87,7 @@ export const manifest = {
 				params: null,
 				path: "/lot7N",
 				shadow: null,
-				a: [0,8],
+				a: [0,9],
 				b: [1]
 			},
 			{
@@ -92,7 +102,7 @@ export const manifest = {
 				params: null,
 				path: "/lot6",
 				shadow: null,
-				a: [0,9],
+				a: [0,10],
 				b: [1]
 			}
 		]

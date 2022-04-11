@@ -1,4 +1,4 @@
-import "../../chunks/firebase-admin-96325c48.js";
+import "../../chunks/firebase-admin-2c361b1d.js";
 import admin from "firebase-admin";
 const expiresIn = 1e3 * 60 * 60 * 24 * 7;
 const secure = "Secure;";

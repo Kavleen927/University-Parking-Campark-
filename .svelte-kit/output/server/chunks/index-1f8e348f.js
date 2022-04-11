@@ -1,5 +1,6 @@
 function noop() {
 }
+const identity = (x) => x;
 function run(fn) {
   return fn();
 }
@@ -9,12 +10,18 @@ function blank_object() {
 function run_all(fns) {
   fns.forEach(run);
 }
+function safe_not_equal(a, b) {
+  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+}
 function subscribe(store, ...callbacks) {
   if (store == null) {
     return noop;
   }
   const unsub = store.subscribe(...callbacks);
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+}
+function null_to_empty(value) {
+  return value == null ? "" : value;
 }
 function custom_event(type, detail, bubbles = false) {
   const e = document.createEvent("CustomEvent");
@@ -217,4 +224,4 @@ function add_attribute(name, value, boolean) {
 function style_object_to_string(style_object) {
   return Object.keys(style_object).filter((key) => style_object[key]).map((key) => `${key}: ${style_object[key]};`).join(" ");
 }
-export { add_attribute as a, escape as b, create_ssr_component as c, subscribe as d, each as e, createEventDispatcher as f, getContext as g, spread as h, escape_object as i, escape_attribute_value as j, globals as k, missing_component as m, onDestroy as o, setContext as s, validate_component as v };
+export { add_attribute as a, escape as b, create_ssr_component as c, subscribe as d, each as e, createEventDispatcher as f, getContext as g, spread as h, escape_object as i, escape_attribute_value as j, globals as k, safe_not_equal as l, missing_component as m, noop as n, onDestroy as o, identity as p, null_to_empty as q, setContext as s, validate_component as v };

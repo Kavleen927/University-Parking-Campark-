@@ -45,6 +45,7 @@
            
            showModal();
         });
+
         await setDoc(doc(collection(db, "users"), userRecord.user.uid), {
             userType: userType,
             username: username,

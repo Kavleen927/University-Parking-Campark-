@@ -1,5 +1,5 @@
-import { c as create_ssr_component, b as escape, f as createEventDispatcher, a as add_attribute, v as validate_component, m as missing_component, e as each, h as spread, i as escape_object, j as escape_attribute_value, k as globals } from "../../chunks/index-737686e0.js";
-import "../../chunks/firebase-dfee011b.js";
+import { c as create_ssr_component, b as escape, f as createEventDispatcher, a as add_attribute, v as validate_component, m as missing_component, e as each, h as spread, i as escape_object, j as escape_attribute_value, k as globals } from "../../chunks/index-1f8e348f.js";
+import "../../chunks/firebase-b7bc24ed.js";
 import "firebase/auth";
 import "firebase/app";
 import "firebase/firestore";
@@ -287,7 +287,7 @@ const VirtualList = create_ssr_component(($$result, $$props, $$bindings, slots) 
   })}</svelte-virtual-list-contents></svelte-virtual-list-viewport>`;
 });
 const ClearIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<svg width="${"100%"}" height="${"100%"}" viewBox="${"-2 -2 50 50"}" focusable="${"false"}" aria-hidden="${"true"}" role="${"presentation"}"><path fill="${"currentColor"}" d="${"M34.923,37.251L24,26.328L13.077,37.251L9.436,33.61l10.923-10.923L9.436,11.765l3.641-3.641L24,19.047L34.923,8.124\n    l3.641,3.641L27.641,22.688L38.564,33.61L34.923,37.251z"}"></path></svg>`;
+  return `<svg width="${"100%"}" height="${"100%"}" viewBox="${"-2 -2 50 50"}" focusable="${"false"}" aria-hidden="${"true"}" role="${"presentation"}"><path fill="${"currentColor"}" d="${"M34.923,37.251L24,26.328L13.077,37.251L9.436,33.61l10.923-10.923L9.436,11.765l3.641-3.641L24,19.047L34.923,8.124\r\n    l3.641,3.641L27.641,22.688L38.564,33.61L34.923,37.251z"}"></path></svg>`;
 });
 function debounce(func, wait, immediate) {
   let timeout;
@@ -881,7 +881,7 @@ const Select = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 
     ${showClearIcon ? `<div class="${"clearSelect svelte-17l1npl"}" aria-hidden="${"true"}">${validate_component(ClearIcon$1 || missing_component, "svelte:component").$$render($$result, {}, {}, {})}</div>` : ``}
 
-    ${!showClearIcon && (showIndicator || showChevron && !value || !isSearchable && !isDisabled && !isWaiting && (showSelectedItem && !isClearable || !showSelectedItem)) ? `<div class="${"indicator svelte-17l1npl"}" aria-hidden="${"true"}">${indicatorSvg ? `<!-- HTML_TAG_START -->${indicatorSvg}<!-- HTML_TAG_END -->` : `<svg width="${"100%"}" height="${"100%"}" viewBox="${"0 0 20 20"}" focusable="${"false"}" aria-hidden="${"true"}" class="${"svelte-17l1npl"}"><path d="${"M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747\n          3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0\n          1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502\n          0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0\n          0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"}"></path></svg>`}</div>` : ``}
+    ${!showClearIcon && (showIndicator || showChevron && !value || !isSearchable && !isDisabled && !isWaiting && (showSelectedItem && !isClearable || !showSelectedItem)) ? `<div class="${"indicator svelte-17l1npl"}" aria-hidden="${"true"}">${indicatorSvg ? `<!-- HTML_TAG_START -->${indicatorSvg}<!-- HTML_TAG_END -->` : `<svg width="${"100%"}" height="${"100%"}" viewBox="${"0 0 20 20"}" focusable="${"false"}" aria-hidden="${"true"}" class="${"svelte-17l1npl"}"><path d="${"M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747\r\n          3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0\r\n          1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502\r\n          0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0\r\n          0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"}"></path></svg>`}</div>` : ``}
 
     ${isWaiting ? `<div class="${"spinner svelte-17l1npl"}"><svg class="${"spinner_icon svelte-17l1npl"}" viewBox="${"25 25 50 50"}"><circle class="${"spinner_path svelte-17l1npl"}" cx="${"50"}" cy="${"50"}" r="${"20"}" fill="${"none"}" stroke="${"currentColor"}" stroke-width="${"5"}" stroke-miterlimit="${"10"}"></circle></svg></div>` : ``}
 
@@ -929,7 +929,7 @@ const ForgotPassword = create_ssr_component(($$result, $$props, $$bindings, slot
       group: "Personal"
     },
     {
-      value: "The make of your first ca",
+      value: "The make of your first car",
       label: "The make of your first car",
       group: "Personal"
     },

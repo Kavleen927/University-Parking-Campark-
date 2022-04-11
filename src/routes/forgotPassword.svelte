@@ -9,7 +9,7 @@
 </script>
 <script>
     import Select from 'svelte-select';
-    import { auth } from "$lib/firebase";                                   ///TODO: link to realtime firebase
+    import { auth } from "$lib/firebase";                               
     import {
         sendPasswordResetEmail,
         updateProfile,

@@ -1,4 +1,4 @@
-import { c as create_ssr_component } from "../../chunks/index-737686e0.js";
+import { c as create_ssr_component } from "../../chunks/index-1f8e348f.js";
 var profile_svelte_svelte_type_style_lang = "";
 const css = {
   code: "#title.svelte-bt2j9b{text-align:center;font-weight:700}h1.svelte-bt2j9b{@apply font-semibold text-xl;}button.svelte-bt2j9b{@apply rounded-lg bg-pink-600 text-white w-full py-2 mt-2;}body.svelte-bt2j9b{@apply flex flex-col place-items-center place-content-center;}div.svelte-bt2j9b{@apply w-full max-w-xs flex flex-col gap-2;}",
