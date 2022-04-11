@@ -68,14 +68,11 @@
     };
     
     
-    const clickHandler= async () => {
-        submitted = true
-        makeUserComplaint();
-    }
+    
     
     const handleSubmit = async () => {
 		isSuccessVisible = true;
-
+        submitted = true;
 		setTimeout(function(){       //this is with the if statements shows message for a duration
 			isSuccessVisible = false;
 		}, 4000);
