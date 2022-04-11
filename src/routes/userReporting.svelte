@@ -10,18 +10,21 @@
 
 <script>
     import { db } from "$lib/firebase";
-
-    import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
-     
+    import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore"; 
     import { request } from "$lib/fetch.js";
     
-
-
     let date, title, plateNumReporting, reportDetails, resolved; //all values strings//resolved is a bool
 
     import { writable } from 'svelte/store';
 	import Modal, { bind } from 'svelte-simple-modal';
     import Popup from './../components/popup.svelte';
+
+    import {fly, fade } from 'svelte/transition';  //this block is for form making sure all fields complete
+    let hasError = false;
+	let isSuccessVisible = false;
+	let submitted = false;
+    const errMessage = "All the fields are mandatory";  ////////
+
 
     const modal = writable(null);
     const showModal = () => modal.set(bind(Popup, { message: errorCode }));
@@ -50,12 +53,12 @@
             title:title,
             plateNumReporting: plateNumReporting,
             reportDetails: reportDetails,
-            resolved: false,     //should be false when complaint initially made, admin will resolve it to true later
+            resolved: false,     //initially false, admin will resolve it to true later
         });
 
         //await updateProfile(userRecord.user, { displayName: username });
         
-        errorCode = "Complaint Report sent!";
+        //errorCode = "Complaint Report sent!";   don't think I need this
             
         
 
@@ -64,7 +67,20 @@
         window.location.replace("/login")
     };
     
+    
+    const clickHandler= async () => {
+        submitted = true
+        makeUserComplaint();
+    }
+    
+    const handleSubmit = async () => {
+		isSuccessVisible = true;
 
+		setTimeout(function(){       //this is with the if statements shows message for a duration
+			isSuccessVisible = false;
+		}, 4000);
+	} 
+        
 </script>
 
 
@@ -73,17 +89,43 @@
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div>
         <h1 id="title">Report a Complaint</h1>            <!--todo: user input should be in specific format-->      
-        <p>Date</p>
-        <input type="text" placeholder="--/--/----" required bind:value={date} />
-        <p>Title</p>
-        <input type="text" required bind:value={title} />
-        <p>What is the license plate number of the vehicle you are reporting? </p>
-        <input type="text" required bind:value={plateNumReporting} />
-        <p>State the details of the issue </p>
-        <input type="text" id="detailbox" required maxlength="1000"  bind:value={reportDetails} />
+        <!--<p>Date</p>    //don't need
+        <input type="text" placeholder="--/--/----" bind:value={date} required/>-->
+
+        {#if hasError == true}
+		    <p class="error-alert">{errMessage}</p>
+        {:else}
+	        {#if isSuccessVisible}	
+		        <p class="error-alert" transition:fade={{duration:150}}>Complaint Report sent!</p>
+	        {/if}
+        {/if}
+
+        <div class="container">
+            <form id="surveyForm" class="mt-4" class:submitted on:submit|preventDefault={handleSubmit}>
+                <div class="form-group">
+                    <p>Title</p>
+                    <input type="text" class="form-control" bind:value={title} required/>
+                </div>
+
+                <div class="form-group">
+                    <p>What is the license plate number of the vehicle you are reporting? </p>
+                    <input type="text" class="form-control" maxlength="6" placeholder="ABC123" bind:value={plateNumReporting} required/>
+                </div> 
+
+                <div class="form-group">
+                    <p>State the details of the issue </p>
+                    <input type="text" id="detailbox"  class="form-control" maxlength="1000"  bind:value={reportDetails} required/>
+                </div> 
+                <button on:click={makeUserComplaint}>SUBMIT REPORT</button>
+            </form>
+        </div>
+
+
+
+
 
         
-        <button on:click={makeUserComplaint}>SUBMIT REPORT</button>
+        <!--<button on:click={makeUserComplaint}>SUBMIT REPORT</button>-->
         <br><br><br><br><br>
     </div>
     
