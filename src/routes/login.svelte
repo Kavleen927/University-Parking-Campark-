@@ -68,4 +68,14 @@
     input {
         @apply w-full rounded p-1 border border-pink-500;
     } 
+    .log{
+        background-color: white; padding: 2%; border-radius: 5%;
+    }
+    :global(body){
+        background-image: url(parking2.jpeg);
+        width: fit-content;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 </style>

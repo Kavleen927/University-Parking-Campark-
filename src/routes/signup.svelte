@@ -82,7 +82,7 @@
 </script>
 <body>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div>
+    <div id="log">
         <h1 id="title">Create an Account</h1>
         <p>Username</p>
         <input type="text" bind:value={username} />
@@ -110,25 +110,24 @@
         <div id="adminAuth"></div>
         <p>Security Question</p>
         <div id="dropdown"><select id="question" name="question" bind:value={question}>
-            <option value="1">Maiden name of your mother</option>
-            <option value="2">The name of your first pet</option>
-            <option value="3">In what city were you born?</option>
-            <option value="4">The make of your first car</option>
-            <option value="5">Favorite food as a child</option>
-            <option value="6">Month your best friend born was born</option>
-            <option value="7">Favorite movie</option>
-            <option value="8">Something you will never eat</option>
-            <option value="9">What was your first job?</option>
-            <option value="10">What was the make of your first car?</option>
-            <option value="11">Who is your favorite actor/actress?</option>
-            <option value="12">The name of your favorite book?</option>
+            <option value="Maiden name of your mother">Maiden name of your mother</option>
+            <option value="The name of your first pet">The name of your first pet</option>
+            <option value="In what city were you born?">In what city were you born?</option>
+            <option value="The make of your first car">The make of your first car</option>
+            <option value="Favorite food as a child">Favorite food as a child</option>
+            <option value="Month your best friend born was born">Month your best friend born was born</option>
+            <option value="Favorite movie">Favorite movie</option>
+            <option value="Something you will never eat">Something you will never eat</option>
+            <option value="What was your first job?">What was your first job?</option>
+            <option value="What was the make of your first car?">What was the make of your first car?</option>
+            <option value="Who is your favorite actor/actress?">Who is your favorite actor/actress?</option>
+            <option value="The name of your favorite book?">The name of your favorite book?</option>
           </select></div>
         <input type="text" placeholder="Answer" bind:value={securityAnswer} />
         <button on:click={signup}>Create Account!</button>
         <button on:click={login}>Already have Account</button>
-        <br><br><br><br><br>
     </div>
-    
+    <br><br><br><br><br><br> 
 </body>
 <Modal show={$modal}>
 </Modal>
@@ -151,5 +150,15 @@
     } 
     #dropdown{
         @apply w-full rounded p-1 border border-pink-500;
+    }
+    #log{
+        background-color: white; padding: 2%; border-radius: 3%;
+    }
+    :global(body){
+        background-image: url(parking2.jpeg);
+        //width: fit-content;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>

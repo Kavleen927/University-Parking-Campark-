@@ -63,14 +63,14 @@
     
 </script>
 <body>
-    <div>
-        <br><br><br>
+    <br><br><br>
+    <div id="log">
+        
         <button id="back" on:click={goback}>&#10229;</button>
         <h1 id="title">Reset Password</h1>
 
         <p>Email</p>     
         <input type="text" bind:value={email} />   <!--bind sets the inputted value to variable username-->
-
 
         <p>Security Question</p>   
         <div style="width:900px;"><Select items={securityQuestions} {groupBy}></Select> </div>  <!--Dropdown-->
@@ -103,5 +103,15 @@
     } 
     #back{
         max-width: 2.5rem; padding-top: 0; padding-bottom: 0;
+    }
+    #log{
+        background-color: white; padding: 3%; border-radius: 5%; 
+    }
+    :global(body){
+        background-image: url(parking2.jpeg);
+        //width: fit-content;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>

@@ -1,5 +1,5 @@
 <script>
-    import Map from './../maps/7N_Map.svelte';
+    import Map from './../maps/3_Map.svelte';
 </script>
 
 <svelte:head>
@@ -13,8 +13,8 @@
 <body>
     <div id="title">
         <br>
-        <h1>Parking Lot 7N</h1>
-        <p>This is lot 7N</p><br>
+        <h1>Parking Lot 3</h1>
+        <p>This is lot 3</p><br>
     </div>
     <div id="map">
         <Map />
