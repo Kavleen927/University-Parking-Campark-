@@ -21,7 +21,7 @@
     import { request } from "$lib/fetch.js"
     import {authErrors} from "./../lib/auth-errors"
 
-    let username, email, password, phoneNumber, hofstraID, vehicle, license, userType, question, securityAnswer, errorCode;
+    let username, email, password, phoneNumber, hofstraID, vehicle, license, userType, question, securityAnswer, errorCode, fullname;
 
     import { writable } from 'svelte/store';
 	import Modal, { bind } from 'svelte-simple-modal';
@@ -55,6 +55,7 @@
             licenseNumber: license,
             securityQuestion: question,
             securityAnswer: securityAnswer,
+            fullname:fullname,
         });
         await updateProfile(userRecord.user, { displayName: username });
         await sendEmailVerification(userRecord.user)
@@ -95,6 +96,8 @@
         <p>Phone Number</p>
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required 
         maxlength="10" placeholder="123-455-6789" bind:value={phoneNumber} />
+        <p>Full Name</p>
+        <input type="text" bind:value={fullname} />
         <p>Hofstra ID</p>
         <input type="number" pattern="[0-9]{9}" maxlength="9" placeholder="700222333" bind:value={hofstraID} />
         <p>Vehicle Make, Model, Year</p>

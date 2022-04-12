@@ -9,10 +9,11 @@
 </script>
 
 <script>
+    
     import { db } from "$lib/firebase";
     import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore"; 
     import { request } from "$lib/fetch.js";
-    
+    import { session } from "$app/stores";
     let date, title, plateNumReporting, reportDetails, resolved; //all values strings//resolved is a bool
 
     import { writable } from 'svelte/store';
@@ -48,7 +49,8 @@
         // });  
 
 
-        await setDoc(doc(db,"complaints",generateUID()), {
+        //await setDoc(doc(db,"complaints",generateUID()), {
+        await setDoc(doc(collection(db, "complaints"), $session.user.uid), {
             date: Timestamp.fromDate(new Date()),
             title:title,
             plateNumReporting: plateNumReporting,
