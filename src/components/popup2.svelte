@@ -30,7 +30,7 @@
             username: username,
             Spot: Spot,
             checkedIn: true,
-            estimateTime: 0,
+            estimateTime: estimate,
         });
         //closeModal();
     };
@@ -39,14 +39,24 @@
         <h1>Parking Spot</h1>
         <p id="spot">{message} Parking Spot {Spot}</p>
     </div> 
-{#if message == "Lot 3" && (userType == "faculty" || userType == "Guest" || userType == "Admin") && checkExists == false}
-    <p>Expected Check Out Time:</p>
-    <button on:click={checkIn}>Check In</button>
-{:else if checkExists == true}
-    <br><p id="Warn">You already checked into a spot! Check out first!</p><br>
-{:else}
-    <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
-{/if}
+    {#if message == "Lot 3"}
+        {#if (userType == "faculty" || userType == "Guest" || userType == "Admin") && checkExists == false}
+            <p id="pa1">Expected Check Out Time:</p><input type="time" id="timeEst" name="estimate" min="07:00" max="22:00" bind:value={estimate} />
+            <button on:click={checkIn}>Check In</button>
+        {:else if checkExists == true}
+            <br><p id="Warn">You already checked into a spot! Check out first!</p><br>
+        {:else}
+            <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
+        {/if}
+    {:else if message == "Lot 7N"}
+        {#if (userType == "student" || userType == "Guest") && checkExists == false}
+            <br><p id="Warn">You can park here! You are a {userType}!</p><br>
+        {:else if checkExists == true}
+            <br><p id="Warn">You already checked into a spot! Check out first!</p><br>
+        {:else}
+            <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
+        {/if}
+    {/if}
 
 <style lang="postcss">
     button{
@@ -61,4 +71,8 @@
     #spot{
         font-weight: 400; font-style: italic;
     }
+    #pa1{
+        order: 1;
+    }
+    
 </style>

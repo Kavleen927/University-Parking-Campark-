@@ -29,6 +29,10 @@
         {
 			href: '/parkinglots',
 			name: 'Parking Lots',
+		},
+		{
+			href: '/userReporting',
+			name: 'Report',
 		}
 	];
 </script>
