@@ -14,25 +14,36 @@
             console.log("No such document!");
         }
     });
+    let checkExists = false;
+    getDoc(doc(db, message, $session.user.uid)).then(docSnap2 => {
+        if (docSnap2.exists()) {
+            checkExists = true;
+            return checkExists;
+        } else {
+            console.log("No such document!");
+        }
+    });
     const checkIn = async () => {
        // alert("Hi")
-        await setDoc(doc(collection(db, message), ("Spot"+ Spot)), {
+        await setDoc(doc(collection(db, message), $session.user.uid), { //("Spot"+ Spot)
             userType: userType,
             username: username,
             Spot: Spot,
             checkedIn: true,
             estimateTime: 0,
         });
-        alert("Checked!")
+        //closeModal();
     };
  </script>
      <div id="main">
         <h1>Parking Spot</h1>
         <p id="spot">{message} Parking Spot {Spot}</p>
     </div> 
-{#if userType == "faculty" || userType == "Guest" || userType == "Admin"}
+{#if message == "Lot 3" && (userType == "faculty" || userType == "Guest" || userType == "Admin") && checkExists == false}
     <p>Expected Check Out Time:</p>
     <button on:click={checkIn}>Check In</button>
+{:else if checkExists == true}
+    <br><p id="Warn">You already checked into a spot! Check out first!</p><br>
 {:else}
     <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
 {/if}
