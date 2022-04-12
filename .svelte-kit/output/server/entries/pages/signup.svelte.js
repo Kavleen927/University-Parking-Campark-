@@ -1,8 +1,9 @@
-import { c as create_ssr_component, d as subscribe, a as add_attribute, b as escape, v as validate_component } from "../../chunks/index-1f8e348f.js";
+import { c as create_ssr_component, d as subscribe, a as add_attribute, b as escape, v as validate_component } from "../../chunks/index-90541925.js";
 import "../../chunks/firebase-b7bc24ed.js";
 import "firebase/auth";
 import "firebase/firestore";
-import { M as Modal, w as writable } from "../../chunks/Modal-a61ff8e0.js";
+import { w as writable } from "../../chunks/index-1c6dc227.js";
+import { M as Modal } from "../../chunks/Modal-0bb04adc.js";
 import "firebase/app";
 var signup_svelte_svelte_type_style_lang = "";
 const css = {
@@ -16,7 +17,7 @@ const load = async ({ session }) => {
 };
 const Signup = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $modal, $$unsubscribe_modal;
-  let username, email, password, phoneNumber, hofstraID, vehicle, license, securityAnswer;
+  let username, email, password, phoneNumber, hofstraID, vehicle, license, securityAnswer, fullname;
   const modal = writable(null);
   $$unsubscribe_modal = subscribe(modal, (value) => $modal = value);
   $$result.css.add(css);
@@ -32,6 +33,8 @@ const Signup = create_ssr_component(($$result, $$props, $$bindings, slots) => {
         <p id="${"errorCode"}" class="${"error pink-text center-align"}"></p>
         <p>Phone Number</p>
         <input type="${"tel"}" id="${"phone"}" name="${"phone"}" pattern="${"[0-9]" + escape(3) + "-[0-9]" + escape(3) + "-[0-9]" + escape(4)}" required maxlength="${"10"}" placeholder="${"123-455-6789"}" class="${"svelte-155gykq"}"${add_attribute("value", phoneNumber, 0)}>
+        <p>Full Name</p>
+        <input type="${"text"}" class="${"svelte-155gykq"}"${add_attribute("value", fullname, 0)}>
         <p>Hofstra ID</p>
         <input type="${"number"}" pattern="${"[0-9]" + escape(9)}" maxlength="${"9"}" placeholder="${"700222333"}" class="${"svelte-155gykq"}"${add_attribute("value", hofstraID, 0)}>
         <p>Vehicle Make, Model, Year</p>

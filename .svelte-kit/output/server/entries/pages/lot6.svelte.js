@@ -1,4 +1,4 @@
-import { c as create_ssr_component } from "../../chunks/index-1f8e348f.js";
+import { c as create_ssr_component } from "../../chunks/index-90541925.js";
 var lot6_svelte_svelte_type_style_lang = "";
 const css = {
   code: "#title.svelte-12caqkh{text-align:center;font-weight:700}h1.svelte-12caqkh{@apply font-semibold text-xl;}",

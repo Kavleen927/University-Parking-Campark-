@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["favicon.png"]),
 	_: {
 		mime: {".png":"image/png"},
-		entry: {"file":"start-c5354338.js","js":["start-c5354338.js","chunks/vendor-67427833.js"],"css":["assets/vendor-123ecc59.css"]},
+		entry: {"file":"start-ccd84c98.js","js":["start-ccd84c98.js","chunks/vendor-7b15748c.js"],"css":["assets/vendor-47978cb3.css"]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
@@ -15,7 +15,8 @@ export const manifest = {
 			() => import('./nodes/7.js'),
 			() => import('./nodes/8.js'),
 			() => import('./nodes/9.js'),
-			() => import('./nodes/10.js')
+			() => import('./nodes/10.js'),
+			() => import('./nodes/11.js')
 		],
 		routes: [
 			{
@@ -29,11 +30,20 @@ export const manifest = {
 			},
 			{
 				type: 'page',
+				pattern: /^\/adminReporting\/?$/,
+				params: null,
+				path: "/adminReporting",
+				shadow: null,
+				a: [0,3],
+				b: [1]
+			},
+			{
+				type: 'page',
 				pattern: /^\/forgotPassword\/?$/,
 				params: null,
 				path: "/forgotPassword",
 				shadow: null,
-				a: [0,3],
+				a: [0,4],
 				b: [1]
 			},
 			{
@@ -42,7 +52,7 @@ export const manifest = {
 				params: null,
 				path: "/userReporting",
 				shadow: null,
-				a: [0,4],
+				a: [0,5],
 				b: [1]
 			},
 			{
@@ -51,7 +61,7 @@ export const manifest = {
 				params: null,
 				path: "/parkinglots",
 				shadow: null,
-				a: [0,5],
+				a: [0,6],
 				b: [1]
 			},
 			{
@@ -60,7 +70,7 @@ export const manifest = {
 				params: null,
 				path: "/profile",
 				shadow: null,
-				a: [0,6],
+				a: [0,7],
 				b: [1]
 			},
 			{
@@ -69,7 +79,7 @@ export const manifest = {
 				params: null,
 				path: "/signup",
 				shadow: null,
-				a: [0,7],
+				a: [0,8],
 				b: [1]
 			},
 			{
@@ -78,7 +88,7 @@ export const manifest = {
 				params: null,
 				path: "/login",
 				shadow: null,
-				a: [0,8],
+				a: [0,9],
 				b: [1]
 			},
 			{
@@ -87,7 +97,7 @@ export const manifest = {
 				params: null,
 				path: "/lot7N",
 				shadow: null,
-				a: [0,9],
+				a: [0,10],
 				b: [1]
 			},
 			{
@@ -102,7 +112,7 @@ export const manifest = {
 				params: null,
 				path: "/lot6",
 				shadow: null,
-				a: [0,10],
+				a: [0,11],
 				b: [1]
 			}
 		]

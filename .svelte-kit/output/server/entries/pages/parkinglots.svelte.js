@@ -1,4 +1,4 @@
-import { c as create_ssr_component } from "../../chunks/index-1f8e348f.js";
+import { c as create_ssr_component } from "../../chunks/index-90541925.js";
 var parkinglots_svelte_svelte_type_style_lang = "";
 const css = {
   code: "#title.svelte-t4kskj{text-align:center;font-weight:700}h1.svelte-t4kskj{@apply font-semibold text-xl;}button.svelte-t4kskj{@apply rounded-lg bg-pink-600 text-white w-full py-2 mt-2;}body.svelte-t4kskj{@apply flex flex-col place-items-center place-content-center;}div.svelte-t4kskj{@apply w-full max-w-xs flex flex-col gap-2;}",

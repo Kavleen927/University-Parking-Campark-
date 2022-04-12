@@ -1,6 +1,6 @@
-import * as module from '../entries/pages/profile.svelte.js';
+import * as module from '../entries/pages/parkinglots.svelte.js';
 
 export { module };
-export const entry = 'pages/profile.svelte-dc8c7ee6.js';
-export const js = ["pages/profile.svelte-dc8c7ee6.js","chunks/vendor-67427833.js"];
-export const css = ["assets/pages/profile.svelte-0c16babf.css","assets/vendor-123ecc59.css"];
+export const entry = 'pages/parkinglots.svelte-f70326e6.js';
+export const js = ["pages/parkinglots.svelte-f70326e6.js","chunks/vendor-7b15748c.js"];
+export const css = ["assets/pages/parkinglots.svelte-b3a2bede.css","assets/vendor-47978cb3.css"];

@@ -1,8 +1,8 @@
 
 import root from '__GENERATED__/root.svelte';
-import { respond } from '/Users/19172/Documents/GitHub/CamPark_/.svelte-kit/runtime/server/index.js';
-import { set_paths, assets, base } from '/Users/19172/Documents/GitHub/CamPark_/.svelte-kit/runtime/paths.js';
-import { set_prerendering } from '/Users/19172/Documents/GitHub/CamPark_/.svelte-kit/runtime/env.js';
+import { respond } from '/Users/19172/Documents/GitHub/Campark_/.svelte-kit/runtime/server/index.js';
+import { set_paths, assets, base } from '/Users/19172/Documents/GitHub/Campark_/.svelte-kit/runtime/paths.js';
+import { set_prerendering } from '/Users/19172/Documents/GitHub/Campark_/.svelte-kit/runtime/env.js';
 import * as user_hooks from "..\\..\\src\\hooks\\index.js";
 
 const template = ({ head, body, assets, nonce }) => "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\t<head>\r\n\t\t<meta charset=\"utf-8\" />\r\n\t\t<meta name=\"description\" content=\"\" />\r\n\t\t<link rel=\"icon\" href=\"" + assets + "/favicon.png\" />\r\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n\t\t" + head + "\r\n\t</head>\r\n\t<body>\r\n\t\t<div>" + body + "</div>\r\n\t</body>\r\n</html>\r\n";
