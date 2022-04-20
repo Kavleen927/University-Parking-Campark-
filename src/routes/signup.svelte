@@ -21,10 +21,10 @@
     import { request } from "$lib/fetch.js"
     import {authErrors} from "./../lib/auth-errors"
 
-    let username, email, password, phoneNumber, hofstraID, vehicle, license, userType, question, securityAnswer, errorCode;
+    let username, email, password, phoneNumber, hofstraID, vehicle, license, userType, question, securityAnswer, errorCode, fullname;
 
     import { writable } from 'svelte/store';
-	import Modal, { bind } from 'svelte-simple-modal';
+    import Modal, { bind } from 'svelte-simple-modal';
     import Popup from './../components/popup.svelte';
     const modal = writable(null);
     const showModal = () => modal.set(bind(Popup, { message: errorCode }));
@@ -54,6 +54,8 @@
             licenseNumber: license,
             securityQuestion: question,
             securityAnswer: securityAnswer,
+            email: email,
+            fullname: fullname,
         });
         await updateProfile(userRecord.user, { displayName: username });
         await sendEmailVerification(userRecord.user)
@@ -86,6 +88,8 @@
         <h1 id="title">Create an Account</h1>
         <p>Username</p>
         <input type="text" bind:value={username} />
+        <p>Full Name</p>
+        <input type="text" bind:value={fullname} />
         <p>Email</p>
         <input type="text" placeholder="Hofstra Email" bind:value={email} />
         <p>Password </p>

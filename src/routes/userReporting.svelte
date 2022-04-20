@@ -4,18 +4,22 @@
     import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore"; 
     import { request } from "$lib/fetch.js";
     import { session } from "$app/stores";
-    let date, title, plateNumReporting, reportDetails, resolved; //all values strings//resolved is a bool
+    
+    let title, plateNumReporting, reportDetails; //all values strings//resolved is a bool
+
+
     import { writable } from 'svelte/store';
-	import Modal, { bind } from 'svelte-simple-modal';
+    import Modal, { bind } from 'svelte-simple-modal';
     import Popup from './../components/popup.svelte';
     import {fly, fade } from 'svelte/transition';  //this block is for form making sure all fields complete
     let hasError = false;
-	let isSuccessVisible = false;
-	let submitted = false;
+    let isSuccessVisible = false;
+    let submitted = false;
     const errMessage = "All the fields are mandatory";  ////////
     const modal = writable(null);
     const showModal = () => modal.set(bind(Popup, { message: errorCode }));
-    function generateUID() {    //this function is to generate a uniqueuid for each complaint for database storage
+    function generateUID() {    //this function is to generate a uniqueuid for each complaint for database storage  
+        //don't use this function because it does it by itself now
         // generate the UID from two parts here 
         // to ensure the random number provide enough bits.
         var firstPart = (Math.random() * 46656) | 0;
@@ -46,14 +50,15 @@
     
     
     
-    
     const handleSubmit = async () => {
-		isSuccessVisible = true;
+        isSuccessVisible = true;
         submitted = true;
-		setTimeout(function(){       //this is with the if statements shows message for a duration
-			isSuccessVisible = false;
-		}, 4000);
-	} 
+        currvalue = novalue;
+        setTimeout(function(){       //this is with the if statements shows message for a duration
+            isSuccessVisible = false;
+        }, 4000);
+        //window.location.replace("/userReporting")
+    } 
         
 </script>
 
@@ -67,11 +72,11 @@
         <input type="text" placeholder="--/--/----" bind:value={date} required/>-->
 
         {#if hasError == true}
-		    <p class="error-alert">{errMessage}</p>
+            <p class="error-alert">{errMessage}</p>
         {:else}
-	        {#if isSuccessVisible}	
-		        <p class="error-alert" transition:fade={{duration:150}}>Complaint Report sent!</p>
-	        {/if}
+            {#if isSuccessVisible}  
+                <p class="error-alert" transition:fade={{duration:150}}>Complaint Report sent!</p>
+            {/if}
         {/if}
 
         <div class="container">

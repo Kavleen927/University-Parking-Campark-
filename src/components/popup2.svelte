@@ -32,7 +32,7 @@
             checkedIn: true,
             estimateTime: estimate,
         });
-        //closeModal();
+        alert("checked in!")
     };
  </script>
      <div id="main">
@@ -49,8 +49,10 @@
             <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
         {/if}
     {:else if message == "Lot 7N"}
-        {#if (userType == "student" || userType == "Guest") && checkExists == false}
+        {#if checkExists == false}
             <br><p id="Warn">You can park here! You are a {userType}!</p><br>
+            <p id="pa1">Expected Check Out Time:</p><input type="time" id="timeEst" name="estimate" min="07:00" max="22:00" bind:value={estimate} />
+            <button on:click={checkIn}>Check In</button>
         {:else if checkExists == true}
             <br><p id="Warn">You already checked into a spot! Check out first!</p><br>
         {:else}

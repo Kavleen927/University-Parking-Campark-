@@ -2,7 +2,8 @@
 <script>
     import {Coord1, Coord2, Coord3, Coord4, Coord5, Coord6, Coord7, Coord8, Coord9, Coord10,
         Coord11, Coord12, Coord13, Coord14, Coord15, Coord16, Coord17, Coord18, Coord19, Coord20,
-        Coord21, Coord22, Coord23, Coord24, Coord25, Coord26, Coord27, Coord28, Coord29, Coord30,   
+        Coord21, Coord22, Coord23, Coord24, Coord25, Coord26, Coord27, Coord28, Coord29, Coord30, 
+        Coord31, Coord32,
     } from "./PolyCoords/3_Coords";
 	let container;
 	let map;
@@ -48,16 +49,16 @@
             center,
 		});
 
-        function check(){
-            for(let i=0;i<Parked.length;i++){ 
-                if(Parked[i] == "Spot2"){
-                    Spot2.setOptions({strokeColor: "#585858", fillColor: "#585858", clickable: false});
-                }  
-            };
-            if (Spot2.clickable){showModal();};
-        }
+        // function check(){
+        //     for(let i=0;i<Parked.length;i++){ 
+        //         if(Parked[i] == "Spot2"){
+        //             Spot2.setOptions({strokeColor: "#f1c035", fillColor: "#f1c035", clickable: false});
+        //         }  
+        //     };
+        //     if (Spot2.clickable){showModal();};
+        // }
             
-		const Spot1 = new google.maps.Polygon({ paths: Coord1, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+		const Spot1 = new google.maps.Polygon({ paths: Coord1, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot1.setMap(map);
 		Spot1.addListener("click", () => {
             x = 1;
@@ -68,7 +69,7 @@
             };
             if (Spot1.clickable){showModal();};
 		});
-        const Spot2 = new google.maps.Polygon({ paths: Coord2, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot2 = new google.maps.Polygon({ paths: Coord2, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot2.setMap(map);
 		Spot2.addListener("click", () => {
             x = 2;
@@ -80,7 +81,7 @@
             if (Spot2.clickable){showModal();};
 		});
 
-        const Spot3 = new google.maps.Polygon({ paths: Coord3, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot3 = new google.maps.Polygon({ paths: Coord3, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot3.setMap(map);
 		Spot3.addListener("click", () => {
             x = 3;
@@ -92,7 +93,7 @@
             if (Spot3.clickable){showModal();};
 		});
 
-        const Spot4 = new google.maps.Polygon({ paths: Coord4, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot4 = new google.maps.Polygon({ paths: Coord4, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot4.setMap(map);
 		Spot4.addListener("click", () => {
             x = 4;
@@ -104,7 +105,7 @@
             if (Spot4.clickable){showModal();};
 		});
         
-        const Spot5 = new google.maps.Polygon({ paths: Coord5, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot5 = new google.maps.Polygon({ paths: Coord5, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot5.setMap(map);
 		Spot5.addListener("click", () => {
             x = 5;
@@ -115,7 +116,7 @@
             };
             if (Spot5.clickable){showModal();};
 		});
-        const Spot6 = new google.maps.Polygon({ paths: Coord6, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot6 = new google.maps.Polygon({ paths: Coord6, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot6.setMap(map);
 		Spot6.addListener("click", () => {
             x = 6;
@@ -126,7 +127,7 @@
             };
             if (Spot6.clickable){showModal();};
 		});
-        const Spot7 = new google.maps.Polygon({ paths: Coord7, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot7 = new google.maps.Polygon({ paths: Coord7, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot7.setMap(map);
 		Spot7.addListener("click", () => {
             x = 7;
@@ -137,7 +138,7 @@
             };
             if (Spot7.clickable){showModal();};
 		});
-        const Spot8 = new google.maps.Polygon({ paths: Coord8, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot8 = new google.maps.Polygon({ paths: Coord8, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot8.setMap(map);
 		Spot8.addListener("click", () => {
             x = 8;
@@ -148,7 +149,7 @@
             };
             if (Spot8.clickable){showModal();};
 		});
-        const Spot9 = new google.maps.Polygon({ paths: Coord9, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot9 = new google.maps.Polygon({ paths: Coord9, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot9.setMap(map);
 		Spot9.addListener("click", () => {
             x = 9;
@@ -159,7 +160,7 @@
             };
             if (Spot9.clickable){showModal();};
 		});
-        const Spot10 = new google.maps.Polygon({ paths: Coord10, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot10 = new google.maps.Polygon({ paths: Coord10, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot10.setMap(map);
 		Spot10.addListener("click", () => {
             x = 10;
@@ -170,7 +171,7 @@
             };
             if (Spot10.clickable){showModal();};
 		});
-        const Spot11 = new google.maps.Polygon({ paths: Coord11, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot11 = new google.maps.Polygon({ paths: Coord11, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot11.setMap(map);
 		Spot11.addListener("click", () => {
             x = 11;
@@ -181,7 +182,7 @@
             };
             if (Spot11.clickable){showModal();};
 		});
-        const Spot12 = new google.maps.Polygon({ paths: Coord12, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot12 = new google.maps.Polygon({ paths: Coord12, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot12.setMap(map);
 		Spot12.addListener("click", () => {
             x = 12;
@@ -192,7 +193,7 @@
             };
             if (Spot12.clickable){showModal();};
 		});
-        const Spot13 = new google.maps.Polygon({ paths: Coord13, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot13 = new google.maps.Polygon({ paths: Coord13, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot13.setMap(map);
 		Spot13.addListener("click", () => {
             x = 13;
@@ -203,7 +204,7 @@
             };
             if (Spot13.clickable){showModal();};
 		});
-        const Spot14 = new google.maps.Polygon({ paths: Coord14, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot14 = new google.maps.Polygon({ paths: Coord14, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot14.setMap(map);
 		Spot14.addListener("click", () => {
             x = 14;
@@ -214,7 +215,7 @@
             };
             if (Spot14.clickable){showModal();};
 		});
-        const Spot15 = new google.maps.Polygon({ paths: Coord15, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot15 = new google.maps.Polygon({ paths: Coord15, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot15.setMap(map);
 		Spot15.addListener("click", () => {
             x = 15;
@@ -225,7 +226,7 @@
             };
             if (Spot15.clickable){showModal();};
 		});
-        const Spot16 = new google.maps.Polygon({ paths: Coord16, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot16 = new google.maps.Polygon({ paths: Coord16, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot16.setMap(map);
 		Spot16.addListener("click", () => {
             x = 16;
@@ -236,7 +237,7 @@
             };
             if (Spot16.clickable){showModal();};
 		});
-        const Spot17 = new google.maps.Polygon({ paths: Coord17, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot17 = new google.maps.Polygon({ paths: Coord17, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot17.setMap(map);
 		Spot17.addListener("click", () => {
             x = 17;
@@ -247,7 +248,7 @@
             };
             if (Spot17.clickable){showModal();};
 		});
-        const Spot18 = new google.maps.Polygon({ paths: Coord18, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot18 = new google.maps.Polygon({ paths: Coord18, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot18.setMap(map);
 		Spot18.addListener("click", () => {
             x = 18;
@@ -258,7 +259,7 @@
             };
             if (Spot18.clickable){showModal();};
 		});
-        const Spot19 = new google.maps.Polygon({ paths: Coord19, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot19 = new google.maps.Polygon({ paths: Coord19, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot19.setMap(map);
 		Spot19.addListener("click", () => {
             x = 19;
@@ -269,7 +270,7 @@
             };
             if (Spot19.clickable){showModal();};
 		});
-        const Spot20 = new google.maps.Polygon({ paths: Coord20, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot20 = new google.maps.Polygon({ paths: Coord20, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot20.setMap(map);
 		Spot20.addListener("click", () => {
             x = 20;
@@ -280,7 +281,7 @@
             };
             if (Spot20.clickable){showModal();};
 		});
-        const Spot21 = new google.maps.Polygon({ paths: Coord21, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot21 = new google.maps.Polygon({ paths: Coord21, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot21.setMap(map);
 		Spot21.addListener("click", () => {
             x = 21;
@@ -291,7 +292,7 @@
             };
             if (Spot21.clickable){showModal();};
 		});
-        const Spot22 = new google.maps.Polygon({ paths: Coord22, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot22 = new google.maps.Polygon({ paths: Coord22, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot22.setMap(map);
 		Spot22.addListener("click", () => {
             x = 22;
@@ -302,7 +303,7 @@
             };
             if (Spot22.clickable){showModal();};
 		});
-        const Spot23 = new google.maps.Polygon({ paths: Coord23, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot23 = new google.maps.Polygon({ paths: Coord23, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot23.setMap(map);
 		Spot23.addListener("click", () => {
             x = 23;
@@ -313,7 +314,7 @@
             };
             if (Spot23.clickable){showModal();};
 		});
-        const Spot24 = new google.maps.Polygon({ paths: Coord24, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot24 = new google.maps.Polygon({ paths: Coord24, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot24.setMap(map);
 		Spot24.addListener("click", () => {
             x = 24;
@@ -324,7 +325,7 @@
             };
             if (Spot24.clickable){showModal();};
 		});
-        const Spot25 = new google.maps.Polygon({ paths: Coord25, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot25 = new google.maps.Polygon({ paths: Coord25, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot25.setMap(map);
 		Spot25.addListener("click", () => {
             x = 25;
@@ -335,7 +336,7 @@
             };
             if (Spot25.clickable){showModal();};
 		});
-        const Spot26 = new google.maps.Polygon({ paths: Coord26, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot26 = new google.maps.Polygon({ paths: Coord26, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot26.setMap(map);
 		Spot26.addListener("click", () => {
             x = 26;
@@ -346,7 +347,7 @@
             };
             if (Spot26.clickable){showModal();};
 		});
-        const Spot27 = new google.maps.Polygon({ paths: Coord27, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot27 = new google.maps.Polygon({ paths: Coord27, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot27.setMap(map);
 		Spot27.addListener("click", () => {
             x = 27;
@@ -357,7 +358,7 @@
             };
             if (Spot27.clickable){showModal();};
 		});
-        const Spot28 = new google.maps.Polygon({ paths: Coord28, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot28 = new google.maps.Polygon({ paths: Coord28, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot28.setMap(map);
 		Spot28.addListener("click", () => {
             x = 28;
@@ -368,7 +369,7 @@
             };
             if (Spot28.clickable){showModal();};
 		});
-        const Spot29 = new google.maps.Polygon({ paths: Coord29, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot29 = new google.maps.Polygon({ paths: Coord29, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot29.setMap(map);
 		Spot29.addListener("click", () => {
             x = 29;
@@ -379,7 +380,7 @@
             };
             if (Spot29.clickable){showModal();};
 		});
-        const Spot30 = new google.maps.Polygon({ paths: Coord30, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot30 = new google.maps.Polygon({ paths: Coord30, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
 		Spot30.setMap(map);
 		Spot30.addListener("click", () => {
             x = 30;
@@ -389,6 +390,28 @@
                 }  
             };
             if (Spot30.clickable){showModal();};
+        });
+        const Spot31 = new google.maps.Polygon({ paths: Coord31, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
+		Spot31.setMap(map);
+		Spot31.addListener("click", () => {
+            x = 31;
+            for(let i=0;i<Parked.length;i++){ 
+                if(Parked[i] == "Spot31"){
+                    Spot31.setOptions({strokeColor: "#585858", fillColor: "#585858", clickable: false});
+                }  
+            };
+            if (Spot31.clickable){showModal();};
+        });
+        const Spot32 = new google.maps.Polygon({ paths: Coord32, strokeColor: "#f1c035", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#f1c035", fillOpacity: 0.35, clickable: true, });
+		Spot32.setMap(map);
+		Spot32.addListener("click", () => {
+            x = 32;
+            for(let i=0;i<Parked.length;i++){ 
+                if(Parked[i] == "Spot32"){
+                    Spot32.setOptions({strokeColor: "#585858", fillColor: "#585858", clickable: false});
+                }  
+            };
+            if (Spot32.clickable){showModal();};
         });
 	});
 </script>

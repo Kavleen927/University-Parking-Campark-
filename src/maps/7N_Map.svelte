@@ -14,6 +14,25 @@
     import Popup from './../components/popup2.svelte';
     const modal = writable(null);
     const showModal = () => modal.set(bind(Popup, {message: lot, Spot: x }));
+
+	import { getDocs, doc, collection, setDoc} from "firebase/firestore";
+    import { session } from "$app/stores";
+    import { db } from "$lib/firebase";
+    let Parked = [];
+    let spotPark;
+    getDocs(collection(db, "Lot 7N")).then(querySnapshot => {
+        querySnapshot.forEach((doc) => {
+            // console.log(doc.id, " => ", doc.data());
+            // Parked.push(doc.id);
+            let checkCheck = doc.get("checkedIn");
+            if (checkCheck == true){ 
+                spotPark = "Spot" + doc.get("Spot"); 
+                console.log(doc.id, " => ", doc.data(), spotPark);
+                Parked.push(spotPark);
+            }
+        });
+        return Parked;
+    });
     
 	onMount(async () => {
 		map = new google.maps.Map(container, {
@@ -21,18 +40,28 @@
             center,
 		});
         
-		const Spot1 = new google.maps.Polygon({ paths: FirstCoords, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+		const Spot1 = new google.maps.Polygon({ paths: FirstCoords, strokeColor: "#29589c", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#29589c", fillOpacity: 0.35, clickable: true, });
 		Spot1.setMap(map);
 		Spot1.addListener("click", () => {
 			x = 1;
-			showModal();
+			for(let i=0;i<Parked.length;i++){ 
+                if(Parked[i] == "Spot1"){
+                    Spot1.setOptions({strokeColor: "#585858", fillColor: "#585858", clickable: false});
+                }
+            };
+            if (Spot1.clickable){showModal();};
 		});
         
-        const Spot2 = new google.maps.Polygon({ paths: SecCoords, strokeColor: "#FF0000", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#FF0000", fillOpacity: 0.35, clickable: true, });
+        const Spot2 = new google.maps.Polygon({ paths: SecCoords, strokeColor: "#29589c", strokeOpacity: 0.8, strokeWeight: 1, fillColor: "#29589c", fillOpacity: 0.35, clickable: true, });
 		Spot2.setMap(map);
 		Spot2.addListener("click", () => {
 			x = 2;
-			showModal();
+			for(let i=0;i<Parked.length;i++){ 
+                if(Parked[i] == "Spot2"){
+                    Spot2.setOptions({strokeColor: "#585858", fillColor: "#585858", clickable: false});
+                }
+            };
+            if (Spot2.clickable){showModal();};
 		});
         
 	});
