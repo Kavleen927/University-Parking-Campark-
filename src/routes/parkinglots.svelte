@@ -3,8 +3,8 @@
     const gotolot7N = async () => {
         window.location.replace("/lot7N")
     };
-    const gotolot7SW = async () => {
-        window.location.replace("/lot7SW")
+    const gotolot2A = async () => {
+        window.location.replace("/lot2A")
     };
     const gotolot3 = async () => {
         window.location.replace("/lot3")
@@ -18,7 +18,7 @@
         <h1 id="title">Parking Lots</h1> 
         <button on:click={gotolot3}>3</button>
         <button on:click={gotolot7N}>7N</button>
-        <button on:click={gotolot7SW}>7SW</button>  
+        <button on:click={gotolot2A}>2A (Commuter Parking Only)</button>  
     </div>
 </body>
 

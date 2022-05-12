@@ -111,7 +111,8 @@
             <option value="guest">Guest</option>
             <option value="admin">Admin</option>
           </select></div>
-        <div id="adminAuth"></div>
+        {#if userType == "admin"}
+        <div id="adminAuth"><input type="text" maxlength="10" placeholder="Provide Valid Security Code"/></div> {/if}
         <p>Security Question</p>
         <div id="dropdown"><select id="question" name="question" bind:value={question}>
             <option value="Maiden name of your mother">Maiden name of your mother</option>

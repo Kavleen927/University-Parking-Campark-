@@ -23,7 +23,7 @@
             <br><br><br>
             <h1>Welcome, {$session.user.name}!</h1>
             <p>Your email is {$session.user.email}</p><br>
-            <button on:click="{() => (getPosition = true)}"> Get geolocation </button> <br><br><br>
+            <button on:click="{() => (getPosition = true)}"> Find my Location </button> <br><br><br>
         
         <Geolocation
           getPosition="{getPosition}"
@@ -67,4 +67,11 @@
     button{
         @apply rounded-lg max-w-xs bg-pink-600 text-white w-full py-2 mt-2;
     }
+    /* :global(body){
+        background-image: url(images.png);
+        width: fit-content;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    } */
 </style>

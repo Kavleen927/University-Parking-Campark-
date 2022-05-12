@@ -32,7 +32,9 @@
             checkedIn: true,
             estimateTime: estimate,
         });
-        alert("checked in!")
+        if (message == "Lot 3"){ window.location.replace("/lot3"); }
+        else if(message == "Lot 7N"){ window.location.replace("/lot7N"); }
+        else if(message == "Lot 2A"){ window.location.replace("/lot2A"); }
     };
  </script>
      <div id="main">
@@ -41,7 +43,7 @@
     </div> 
     {#if message == "Lot 3"}
         {#if (userType == "faculty" || userType == "Guest" || userType == "Admin") && checkExists == false}
-            <p id="pa1">Expected Check Out Time:</p><input type="time" id="timeEst" name="estimate" min="07:00" max="22:00" bind:value={estimate} />
+            <p id="pa1">Expected Check Out Time:</p><input type="time" id="timeEst" name="estimate" min="07:00:00" max="22:00:00" bind:value={estimate} />
             <button on:click={checkIn}>Check In</button>
         {:else if checkExists == true}
             <br><p id="Warn">You already checked into a spot! Check out first!</p><br>

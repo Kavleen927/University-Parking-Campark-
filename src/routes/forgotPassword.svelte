@@ -73,13 +73,13 @@
         <input type="text" bind:value={email} />   <!--bind sets the inputted value to variable username-->
 
         <p>Security Question</p>   
-        <div style="width:900px;"><Select items={securityQuestions} {groupBy}></Select> </div>  <!--Dropdown-->
+        <div style="width:500px;"><Select items={securityQuestions} {groupBy}></Select> </div>  <!--Dropdown-->
 
         <p>Answer</p>
         <input type="text" bind:value={securityAChosen} />
 
-        <p>New Password</p>
-        <input type="password" bind:value={newPassword} />
+        <!-- <p>New Password</p>
+        <input type="password" bind:value={newPassword} /> -->
         
         <button on:click={changePass}>RESET</button>     <!--Change to call changePass function-->
     </div>

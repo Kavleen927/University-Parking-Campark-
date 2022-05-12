@@ -6,9 +6,9 @@ const c = [
 	() => import("..\\..\\src\\routes\\userReporting.svelte"),
 	() => import("..\\..\\src\\routes\\parkinglots.svelte"),
 	() => import("..\\..\\src\\routes\\profile.svelte"),
-	() => import("..\\..\\src\\routes\\lot7SW.svelte"),
 	() => import("..\\..\\src\\routes\\signup.svelte"),
 	() => import("..\\..\\src\\routes\\login.svelte"),
+	() => import("..\\..\\src\\routes\\lot2A.svelte"),
 	() => import("..\\..\\src\\routes\\lot7N.svelte"),
 	() => import("..\\..\\src\\routes\\lot3.svelte")
 ];
@@ -31,14 +31,14 @@ export const routes = [
 	// src/routes/profile.svelte
 	[/^\/profile\/?$/, [c[0], c[6]], [c[1]]],
 
-	// src/routes/lot7SW.svelte
-	[/^\/lot7SW\/?$/, [c[0], c[7]], [c[1]]],
-
 	// src/routes/signup.svelte
-	[/^\/signup\/?$/, [c[0], c[8]], [c[1]]],
+	[/^\/signup\/?$/, [c[0], c[7]], [c[1]]],
 
 	// src/routes/login.svelte
-	[/^\/login\/?$/, [c[0], c[9]], [c[1]]],
+	[/^\/login\/?$/, [c[0], c[8]], [c[1]]],
+
+	// src/routes/lot2A.svelte
+	[/^\/lot2A\/?$/, [c[0], c[9]], [c[1]]],
 
 	// src/routes/lot7N.svelte
 	[/^\/lot7N\/?$/, [c[0], c[10]], [c[1]]],

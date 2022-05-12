@@ -20,18 +20,6 @@ const firebaseConfig = {
   measurementId: "G-7CPN5ZVFPV"
 };
 
- //const db = getFirestore();
-
-// const colRef = collection(db, 'users');
-// getDocs(colRef).then((snapshot) => {
-//     //console.log(snapshot.docs);
-//     let users = [];
-//     snapshot.docs.forEach((doc) => {
-//       users.push({ ...doc.data(), id: doc.id })
-//     })
-//     console.log(users);
-// });
-
 const app = initializeApp(firebaseConfig, "CLIENT");
 export const auth = getAuth(app);
 export const db = getFirestore(app);
