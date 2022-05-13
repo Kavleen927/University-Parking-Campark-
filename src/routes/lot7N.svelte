@@ -11,23 +11,17 @@
                 estimatedTimeOut = docSnap.get("estimateTime");
                 checkedIn = true;
                 
-                console.log(estimatedTimeOut+":00");
-                console.log(new Date().toLocaleTimeString('en-GB'));
-                // if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) == estimatedTimeOut){ checkOut(); }
+                // console.log(estimatedTimeOut+":00");
+                // console.log(new Date().toLocaleTimeString('en-GB'));
+                // // if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) == estimatedTimeOut){ checkOut(); }
             } else {
                 console.log("No such document!");
             }
          });
-    // function getTime(estimatedTimeOut){
-    //     //window.location.replace("/lot7N");
-    //     console.log(estimatedTimeOut);
-    //     console.log(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}));
-    //     if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) != estimatedTimeOut){ return false; }
-    //     else { return checkOut(); }
-    // }
     function checkOut(){
         //alert("checkedout")
         deleteDoc(doc(db, "Lot 7N", $session.user.uid));
+        window.location.replace("/lot7N")
         return window.location.replace("/lot7N");
     }
     //console.log(new Date().toLocaleTimeString('en-GB'));

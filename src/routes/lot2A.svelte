@@ -17,7 +17,7 @@
             }
          });
     function checkOut(){
-        alert("Checked Out");
+        //alert("Checked Out");
         deleteDoc(doc(db, "Lot 2A", $session.user.uid));
         return window.location.replace("/lot2A");
     }

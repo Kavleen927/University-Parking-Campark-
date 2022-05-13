@@ -5,7 +5,7 @@
     import { getDoc, doc, collection, setDoc} from "firebase/firestore";
     import { session } from "$app/stores";
     import { db } from "$lib/firebase";
-    import Vicinity from "../maps/HofstraCircle.svelte";
+    import vicinity from "../maps/HofstraCircle.svelte";
     let userType, username, estimate;
     getDoc(doc(db, "users", $session.user.uid)).then(docSnap => {
         if (docSnap.exists()) {
@@ -43,9 +43,10 @@
         <h1>Parking Spot</h1>
         <p id="spot">{message} Parking Spot {Spot}</p>
     </div> 
-    {#if Vicinity == true}
+    <!-- //{#if vicinity == true} -->
         {#if message == "Lot 3" }
             {#if (userType == "faculty" || userType == "Guest" || userType == "Admin") && checkExists == false}
+                <br><p id="Warn">You can park here! You are a {userType}!</p><br>
                 <p id="pa1">Expected Check Out Time:</p><input type="time" id="timeEst" name="estimate" min="07:00:00" max="22:00:00" bind:value={estimate} />
                 <button on:click={checkIn}>Check In</button>
             {:else if checkExists == true}
@@ -63,10 +64,20 @@
             {:else}
                 <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
             {/if}
+        {:else if message == "Lot 2A"}
+            {#if (userType == "student" || userType == "Guest") && checkExists == false}
+                <br><p id="Warn">You can park here! You are a {userType}!</p><br>
+                <p id="pa1">Expected Check Out Time:</p><input type="time" id="timeEst" name="estimate" min="07:00:00" max="22:00:00" bind:value={estimate} />
+                <button on:click={checkIn}>Check In</button>
+            {:else if checkExists == true}
+                <br><p id="Warn">You already checked into a spot! Check out first!</p><br>
+            {:else}
+                <br><p id="Warn">You cannot park here! You are a {userType}!</p><br>
+            {/if}
         {/if}
-    {:else}
-        You are not on campus!! Must be on campus to claim a spot. :]
-    {/if}
+    <!-- //{:else}
+      //  You are not on campus!! Must be on campus to claim a spot. :]
+    //{/if} -->
 
 <style lang="postcss">
     button{

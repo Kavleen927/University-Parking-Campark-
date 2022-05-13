@@ -5,22 +5,19 @@
     import { db } from "$lib/firebase";
     var checkedIn = false;
     var estimatedTimeOut;
-   // var estimated;
     getDoc(doc(db, "Lot 3", $session.user.uid)).then(docSnap => {
             if (docSnap.exists()) {
                 estimatedTimeOut = docSnap.get("estimateTime");
                 checkedIn = true;
-                // estimated = estimatedTimeOut+":00"
-                // console.log(estimated);
-                // console.log(new Date().toLocaleTimeString('en-GB'));
             } else {
                 console.log("No such document!");
             }
          });
     function checkOut(){
-        alert("Checked Out");
+        //alert("checkedout")
         deleteDoc(doc(db, "Lot 3", $session.user.uid));
-        return window.location.replace("/lot3");
+        window.location.replace("/lot3");
+        return window.location.replace("/lot3") && window.location.replace("/lot3");
     }
     // function getTime(estimatedTimeOut){
     //     //window.location.replace("/lot7N");
