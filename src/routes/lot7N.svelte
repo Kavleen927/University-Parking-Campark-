@@ -5,24 +5,26 @@
     import { db } from "$lib/firebase";
     var checkedIn = false;
     var estimatedTimeOut;
-    var estimated;
+    
     getDoc(doc(db, "Lot 7N", $session.user.uid)).then(docSnap => {
             if (docSnap.exists()) {
                 estimatedTimeOut = docSnap.get("estimateTime");
                 checkedIn = true;
-                estimated = estimatedTimeOut+":00"
-                console.log(estimated);
+                
+                console.log(estimatedTimeOut+":00");
                 console.log(new Date().toLocaleTimeString('en-GB'));
                 // if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) == estimatedTimeOut){ checkOut(); }
             } else {
                 console.log("No such document!");
             }
          });
-    function getTime(estimatedTimeOut){
-        //window.location.replace("/lot7N");
-        if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) != estimatedTimeOut){ return false; }
-        else { return checkOut(); }
-    }
+    // function getTime(estimatedTimeOut){
+    //     //window.location.replace("/lot7N");
+    //     console.log(estimatedTimeOut);
+    //     console.log(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}));
+    //     if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) != estimatedTimeOut){ return false; }
+    //     else { return checkOut(); }
+    // }
     function checkOut(){
         //alert("checkedout")
         deleteDoc(doc(db, "Lot 7N", $session.user.uid));
@@ -44,7 +46,7 @@
         <br>
         <h1>Parking Lot 7N</h1>
         <p>This is lot 7N</p><br>
-        {#if checkedIn == true && getTime(estimatedTimeOut) == false}
+        {#if checkedIn == true} 
             <div id="CheckedIn">
                 Estimated Check Out: {estimatedTimeOut}<button on:click={checkOut}>Check Out</button>
             </div>

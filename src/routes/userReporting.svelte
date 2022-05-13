@@ -45,6 +45,8 @@
         //await updateProfile(userRecord.user, { displayName: username });
         
         //errorCode = "Complaint Report sent!";   don't think I need this
+        await new Promise(resolve => setTimeout(resolve, 2500)); //delays for some time before rerouting to homepage
+        window.location.replace("/");
             
     };
     

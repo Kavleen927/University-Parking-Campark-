@@ -20,15 +20,12 @@
      
     import { request } from "$lib/fetch.js"
     import {authErrors} from "./../lib/auth-errors"
-
     let username, email, password, phoneNumber, hofstraID, vehicle, license, userType, question, securityAnswer, errorCode, fullname;
-
     import { writable } from 'svelte/store';
     import Modal, { bind } from 'svelte-simple-modal';
     import Popup from './../components/popup.svelte';
     const modal = writable(null);
     const showModal = () => modal.set(bind(Popup, { message: errorCode }));
-
     const signup = async () => {
         const userRecord = await createUserWithEmailAndPassword(
             auth,
@@ -41,7 +38,6 @@
                     errorCode = authErrors[key];
                 }
             }
-           // errorCode = error.desc;
            
            showModal();
         });
@@ -61,17 +57,23 @@
         await sendEmailVerification(userRecord.user)
         .then(() => {
             errorCode = "Email Verification sent!";
-            showModal();
+            //showModal();
         });
-        const idToken = await getIdToken(userRecord.user, true);
-        await request("/auth", "POST", { idToken });
-        window.location.replace("/login")
+        if(userRecord.user.emailVerified){
+            const idToken = await getIdToken(userRecord.user, true);
+            await request("/auth", "POST", { idToken });
+            login();
+        }else{
+            // errorCode = "Email Verification was sent!. Verify email first to continue!";
+            // showModal();
+            window.location.replace("/login");
+        }
+        
     };
     
     const login = async () => {
         window.location.replace("/login")
     }
-
     function checkPassword(str)
     {
         // at least one number, one lowercase and one uppercase letter
@@ -79,8 +81,6 @@
         var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         return re.test(str);
     }
-
-
 </script>
 <body>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

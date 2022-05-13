@@ -23,6 +23,7 @@
             <br><br><br>
             <h1>Welcome, {$session.user.name}!</h1>
             <p>Your email is {$session.user.email}</p><br>
+
             <button on:click="{() => (getPosition = true)}"> Find my Location </button> <br><br><br>
         
         <Geolocation

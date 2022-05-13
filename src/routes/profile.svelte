@@ -6,11 +6,14 @@
     import { writable } from 'svelte/store';
     import Modal, { bind } from 'svelte-simple-modal';
     import { db } from "$lib/firebase";
+    import Popup from './../components/popup.svelte';
+    const modal = writable(null);
+    const showModal = () => modal.set(bind(Popup, { message: errorCode }));
 
     
     import Hidden from "../components/Hidden.svelte"; //this is to hide/show div w/ buttonclick
     let numedit,vehicleedit,licenseedit;
-
+    var errorCode;
 
     let showfullname, showhofstraid, showemail, shownumber, showvehicle, 
     showusername, showsecurityQ, showlicense, showsecurityA;  //vars holding current content on database
@@ -36,25 +39,31 @@
 
     const userRef = doc(db, "users", $session.user.uid);
     
-    async function changeNumber () {
-        await updateDoc(userRef, {
-        phoneNumber: newnumber
+    function changeNumber () {
+        updateDoc(userRef, {
+            phoneNumber: newnumber
         });
-    window.location.replace("/profile");
+        errorCode = "Profile has been updated.";
+        showModal();
+        return window.location.replace("/");
     }
 
     async function changeVehicle () {
         await updateDoc(userRef, {
             vehicleMakeModelYear: newvehicle
         });
-    window.location.replace("/profile");
+        errorCode = "Profile has been updated.";
+        showModal();
+        return window.location.replace("/");
     }
 
     async function changeLicense () {
         await updateDoc(userRef, {
             licenseNumber: newlicense
         });
-    window.location.replace("/profile");
+        errorCode = "Profile has been updated.";
+        showModal();
+        window.location.replace("/");
     }
 </script>
 
@@ -98,7 +107,8 @@
         <p>Answer to security question given: {showsecurityA}</p>
     </div>
 </body>
-
+<Modal show={$modal}>
+</Modal>
 <style lang="postcss">
         #title{ text-align: center; font-weight: 700; }
     h1{

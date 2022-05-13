@@ -1,4 +1,4 @@
-<script context="module">
+<!-- <script context="module">
     //import {goto} from '$app/navigation'
     export const load = async ({ session }) => {
         if (!session.user.exists) return {};
@@ -7,14 +7,19 @@
             redirect: "/",
         };
     };
-</script>
+</script> -->
 
 <script>
     import { auth } from "$lib/firebase";
     import { signInWithEmailAndPassword } from "firebase/auth";
     import { request } from "$lib/fetch.js"
+    import { writable } from 'svelte/store';
+    import Modal, { bind } from 'svelte-simple-modal';
+    import Popup from './../components/popup.svelte';
+    const modal = writable(null);
+    const showModal = () => modal.set(bind(Popup, { message: errorCode }));
 
-    let email, password;
+    let email, password, errorCode;
 
     const login = async () => {
         const userCredential = await signInWithEmailAndPassword(
@@ -23,12 +28,19 @@
             password
         )
         .catch((error) => {
-            const errorCode = error.code;
-            alert(errorCode)
+            errorCode = error.code;
+            //alert(errorCode)
+            showModal();
         });
         const idToken = userCredential._tokenResponse.idToken;
         await request("/auth", "POST", { idToken });
-        window.location.replace("/")
+        if(userCredential.user.emailVerified){
+            window.location.replace("/")
+        }else{
+            errorCode = "Email Verification was sent when you registered! Verify email first to login!";
+            //alert(errorCode);
+            showModal();
+        }
     };
     const register = async () => {
         window.location.replace("/signup")
@@ -50,6 +62,8 @@
         <button on:click={register}>Register me!</button> 
     </div>
 </body>
+<Modal show={$modal}>
+</Modal>
 <style lang="postcss">
     #title{ text-align: center; font-weight: 600; }
     #ProjectTitle{ text-align: center; font-weight: 600; color: #ce2c76; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}

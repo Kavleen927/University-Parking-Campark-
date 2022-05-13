@@ -1,5 +1,6 @@
 
 <script>
+    import Geolocation from "svelte-geolocation";
     import {Coord1, Coord2, Coord3, Coord4, Coord5, Coord6, Coord7, Coord8, Coord9, Coord10,
         Coord11, Coord12, Coord13, Coord14, Coord15, Coord16, Coord17, Coord18, Coord19, Coord20,
         Coord21, Coord22, Coord23, Coord24, Coord25, Coord26, Coord27, Coord28, Coord29, Coord30, 
@@ -37,6 +38,7 @@
             center,
         }) 
         let spotPark; 
+
 
         function Park(Spot_){
             return Spot_.setOptions({strokeColor: "#585858", fillColor: "#585858", clickable: false});
@@ -682,6 +684,18 @@
             x = 96;
             if (Spot96.clickable){showModal();};
 		});
+
+        // const hofstraCircle = new google.maps.Circle({
+        //     strokeColor: "#FF0000",
+        //     strokeOpacity: 0.8,
+        //     strokeWeight: 2,
+        //     fillOpacity: 0, 
+        //     map,
+        //     center: { lat: 40.71441000918798, lng: -73.60294089571282 }, //40.71441000918798, -73.60294089571282
+        //     radius: 300,
+        // });
+        // hofstraCircle.setMap(map);
+        
 	})
     
     

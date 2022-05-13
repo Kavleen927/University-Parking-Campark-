@@ -5,29 +5,28 @@
     import { db } from "$lib/firebase";
     var checkedIn = false;
     var estimatedTimeOut;
-    var estimated;
+   // var estimated;
     getDoc(doc(db, "Lot 3", $session.user.uid)).then(docSnap => {
             if (docSnap.exists()) {
                 estimatedTimeOut = docSnap.get("estimateTime");
                 checkedIn = true;
-                estimated = estimatedTimeOut+":00"
-                console.log(estimated);
-                console.log(new Date().toLocaleTimeString('en-GB'));
+                // estimated = estimatedTimeOut+":00"
+                // console.log(estimated);
+                // console.log(new Date().toLocaleTimeString('en-GB'));
             } else {
                 console.log("No such document!");
             }
          });
     function checkOut(){
-        //alert("Checked Out");
+        alert("Checked Out");
         deleteDoc(doc(db, "Lot 3", $session.user.uid));
         return window.location.replace("/lot3");
-        
     }
-    function getTime(estimatedTimeOut){
-        //window.location.replace("/lot7N");
-        if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) != estimatedTimeOut){ return false; }
-        else { return checkOut(); }
-    }
+    // function getTime(estimatedTimeOut){
+    //     //window.location.replace("/lot7N");
+    //     if(new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'}) != estimatedTimeOut){ return false; }
+    //     else { return checkOut(); }
+    // }
 </script>
 
 <svelte:head>
@@ -43,7 +42,7 @@
         <br>
         <h1>Parking Lot 3</h1>
         <p>This is lot 3</p><br>
-        {#if checkedIn == true && !getTime(estimatedTimeOut)}
+        {#if checkedIn == true}
             <div id="CheckedIn">
                 Estimated Check Out: {estimatedTimeOut}<button on:click={checkOut}>Check Out</button>
             </div>

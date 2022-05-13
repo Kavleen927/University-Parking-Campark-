@@ -1,20 +1,25 @@
 <script>
-    import Map from '../maps/2A_Map.svelte';
+    import Map from './../maps/2A_Map.svelte';
     import { getDoc, doc, collection, deleteDoc} from "firebase/firestore";
     import { session } from "$app/stores";
     import { db } from "$lib/firebase";
     var checkedIn = false;
+    var estimatedTimeOut;
     getDoc(doc(db, "Lot 2A", $session.user.uid)).then(docSnap => {
             if (docSnap.exists()) {
+                estimatedTimeOut = docSnap.get("estimateTime");
                 checkedIn = true;
+                // estimated = estimatedTimeOut+":00"
+                // console.log(estimated);
+                // console.log(new Date().toLocaleTimeString('en-GB'));
             } else {
                 console.log("No such document!");
             }
          });
     function checkOut(){
         alert("Checked Out");
-        return deleteDoc(doc(db, "Lot 2A", $session.user.uid));
-        
+        deleteDoc(doc(db, "Lot 2A", $session.user.uid));
+        return window.location.replace("/lot2A");
     }
 </script>
 
@@ -30,7 +35,7 @@
         <p>This is lot 2A</p>
         {#if checkedIn == true}
             <div id="CheckedIn">
-                <button on:click={checkOut}>Check Out</button>
+                Estimated Check Out: {estimatedTimeOut}<button on:click={checkOut}>Check Out</button>
             </div>
         {/if}
         <br>
